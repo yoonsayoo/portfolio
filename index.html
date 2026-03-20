@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Yoon Sa-yoo</title>
+  <meta name="description" content="Yoon Sa-yoo portfolio website" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="logo">
+      <a href="#home">Yoon Sa-yoo</a>
+    </div>
+
+    <nav class="top-nav">
+      <a href="#works">Works</a>
+      <a href="#exhibitions">Exhibitions</a>
+      <a href="#texts">Texts</a>
+      <a href="#cv">CV</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <main>
+    <section id="home" class="section home-section">
+      <div class="home-images">
+        <figure class="home-image">
+          <img src="images/main-1.jpg" alt="Main artwork 1" />
+        </figure>
+        <figure class="home-image">
+          <img src="images/main-2.jpg" alt="Main artwork 2" />
+        </figure>
+      </div>
+    </section>
+
+    <section id="works" class="section">
+      <div class="section-head">
+        <h2>Works</h2>
+      </div>
+
+      <div class="works-layout">
+        <aside class="works-sidebar">
+          <details open>
+            <summary>Human</summary>
+            <ul>
+              <li><a href="#">People</a></li>
+              <li><a href="#">Self-Portraits</a></li>
+            </ul>
+          </details>
+
+          <details>
+            <summary>Narrative</summary>
+            <ul>
+              <li><a href="#">Roots</a></li>
+              <li><a href="#">Black Room</a></li>
+            </ul>
+          </details>
+
+          <details>
+            <summary>Still Life</summary>
+            <ul>
+              <li><a href="#">House</a></li>
+              <li><a href="#">Objects</a></li>
+            </ul>
+          </details>
+
+          <details>
+            <summary>Nature</summary>
+          </details>
+
+          <details>
+            <summary>Projects</summary>
+            <ul>
+              <li><a href="#">Laos National Institute of Fine Arts</a></li>
+              <li><a href="#">Room 202</a></li>
+              <li><a href="#">Under the Letter</a></li>
+            </ul>
+          </details>
+        </aside>
+
+        <div class="works-grid">
+          <button
+            class="thumb"
+            type="button"
+            data-index="0"
+            data-title="Long Marsh"
+            data-image="images/work-01.jpg"
+          >
+            <img src="images/work-01.jpg" alt="Long Marsh" />
+          </button>
+
+          <button
+            class="thumb"
+            type="button"
+            data-index="1"
+            data-title="Stone Figure"
+            data-image="images/work-02.jpg"
+          >
+            <img src="images/work-02.jpg" alt="Stone Figure" />
+          </button>
+
+          <button
+            class="thumb"
+            type="button"
+            data-index="2"
+            data-title="Matchstick Tree"
+            data-image="images/work-03.jpg"
+          >
+            <img src="images/work-03.jpg" alt="Matchstick Tree" />
+          </button>
+
+          <button
+            class="thumb"
+            type="button"
+            data-index="3"
+            data-title="An Old Dandelion"
+            data-image="images/work-04.jpg"
+          >
+            <img src="images/work-04.jpg" alt="An Old Dandelion" />
+          </button>
+
+          <button
+            class="thumb"
+            type="button"
+            data-index="4"
+            data-title="Your Cold Heart"
+            data-image="images/work-05.jpg"
+          >
+            <img src="images/work-05.jpg" alt="Your Cold Heart" />
+          </button>
+
+          <button
+            class="thumb"
+            type="button"
+            data-index="5"
+            data-title="Fish Stairs"
+            data-image="images/work-06.jpg"
+          >
+            <img src="images/work-06.jpg" alt="Fish Stairs" />
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <section id="exhibitions" class="section text-section">
+      <div class="section-head">
+        <h2>Exhibitions</h2>
+      </div>
+      <ul class="simple-list">
+        <li>혼자 가는 먼 집</li>
+        <li>화분과 뿌리</li>
+        <li>지워지지 않는 연필 자국</li>
+      </ul>
+    </section>
+
+    <section id="texts" class="section text-section">
+      <div class="section-head">
+        <h2>Texts</h2>
+      </div>
+      <p class="muted">Texts coming soon.</p>
+    </section>
+
+    <section id="cv" class="section text-section">
+      <div class="section-head">
+        <h2>CV</h2>
+      </div>
+      <p class="muted">CV coming soon.</p>
+    </section>
+
+    <section id="contact" class="section text-section">
+      <div class="section-head">
+        <h2>Contact</h2>
+      </div>
+      <p>Email: <a href="mailto:your@email.com">your@email.com</a></p>
+    </section>
+  </main>
+
+  <div class="viewer" id="viewer" aria-hidden="true">
+    <button class="viewer-close" id="viewerClose" aria-label="Close">×</button>
+    <button class="viewer-nav viewer-prev" id="viewerPrev" aria-label="Previous image">‹</button>
+
+    <div class="viewer-stage">
+      <img id="viewerImage" src="" alt="" />
+      <div class="viewer-caption" id="viewerCaption"></div>
+    </div>
+
+    <button class="viewer-nav viewer-next" id="viewerNext" aria-label="Next image">›</button>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
