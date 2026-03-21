@@ -61,10 +61,13 @@ function setActiveView(viewName) {
 }
 
 function getVisibleItems() {
+  if (!Array.isArray(artworks)) return [];
   return artworks.filter(item => item.series === currentSeries);
 }
 
 function renderGrid() {
+  if (!worksGrid) return;
+
   worksGrid.innerHTML = "";
 
   visibleItems.forEach((item, index) => {
@@ -93,7 +96,10 @@ function updateGrid(series) {
     button.classList.remove("is-active");
   });
 
-  worksCurrent.textContent = formatSeriesName(series);
+  if (worksCurrent) {
+    worksCurrent.textContent = formatSeriesName(series);
+  }
+
   renderGrid();
   setActiveView("works");
 }
@@ -102,27 +108,31 @@ function openViewer(index) {
   currentIndex = index;
   updateViewer();
 
-  viewer.classList.add("is-open");
-  viewer.setAttribute("aria-hidden", "false");
-  document.body.style.overflow = "hidden";
+  if (viewer) {
+    viewer.classList.add("is-open");
+    viewer.setAttribute("aria-hidden", "false");
+    document.body.style.overflow = "hidden";
+  }
 }
 
 function closeViewer() {
-  viewer.classList.remove("is-open");
-  viewer.setAttribute("aria-hidden", "true");
-  document.body.style.overflow = "";
+  if (viewer) {
+    viewer.classList.remove("is-open");
+    viewer.setAttribute("aria-hidden", "true");
+    document.body.style.overflow = "";
+  }
 }
 
 function updateViewer() {
   const item = visibleItems[currentIndex];
   if (!item) return;
 
-  viewerImage.src = item.image;
-  viewerImage.alt = item.titleEn || item.title || "";
-  viewerTitle.textContent = item.titleEn || item.title || "";
-  viewerYear.textContent = item.year || "";
-  viewerMaterial.textContent = item.material || "";
-  viewerSize.textContent = item.size || "";
+  if (viewerImage) viewerImage.src = item.image;
+  if (viewerImage) viewerImage.alt = item.titleEn || item.title || "";
+  if (viewerTitle) viewerTitle.textContent = item.titleEn || item.title || "";
+  if (viewerYear) viewerYear.textContent = item.year || "";
+  if (viewerMaterial) viewerMaterial.textContent = item.material || "";
+  if (viewerSize) viewerSize.textContent = item.size || "";
 }
 
 function showNext() {
@@ -149,22 +159,26 @@ pageButtons.forEach(button => {
   });
 });
 
-homeButton.addEventListener("click", () => {
-  setActiveView("home");
-  pageButtons.forEach(button => button.classList.remove("is-active"));
-  seriesButtons.forEach(button => button.classList.remove("is-active"));
-});
+if (homeButton) {
+  homeButton.addEventListener("click", () => {
+    setActiveView("home");
+    pageButtons.forEach(button => button.classList.remove("is-active"));
+    seriesButtons.forEach(button => button.classList.remove("is-active"));
+  });
+}
 
-viewerClose.addEventListener("click", closeViewer);
-viewerNext.addEventListener("click", showNext);
-viewerPrev.addEventListener("click", showPrev);
+if (viewerClose) viewerClose.addEventListener("click", closeViewer);
+if (viewerNext) viewerNext.addEventListener("click", showNext);
+if (viewerPrev) viewerPrev.addEventListener("click", showPrev);
 
-viewer.addEventListener("click", (event) => {
-  if (event.target === viewer) closeViewer();
-});
+if (viewer) {
+  viewer.addEventListener("click", (event) => {
+    if (event.target === viewer) closeViewer();
+  });
+}
 
 document.addEventListener("keydown", (event) => {
-  if (!viewer.classList.contains("is-open")) return;
+  if (!viewer || !viewer.classList.contains("is-open")) return;
 
   if (event.key === "Escape") closeViewer();
   if (event.key === "ArrowRight") showNext();
