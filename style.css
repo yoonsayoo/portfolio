@@ -114,7 +114,6 @@ button {
 }
 
 .content {
-  margin-left: 240px;
   min-height: 100vh;
   padding: 20px 24px;
 }
@@ -281,7 +280,7 @@ button {
 
   .content {
     margin-left: 0;
-    padding: 0 18px 18px;
+    padding: 20px 18px 18px;
   }
 
   .works-grid {
