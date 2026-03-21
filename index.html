@@ -125,14 +125,39 @@
 
   </main>
   <script>
-    const homeView = document.getElementById("homeView");
-    const worksView = document.getElementById("worksView");
-    const peopleBtn = document.getElementById("peopleBtn");
+  const homeView = document.getElementById("homeView");
+  const worksView = document.getElementById("worksView");
+  const worksGrid = document.getElementById("worksGrid");
+  const peopleBtn = document.getElementById("peopleBtn");
 
-    peopleBtn.addEventListener("click", () => {
-      homeView.style.display = "none";
-      worksView.style.display = "block";
+  const artworks = [
+    {
+      title: "The One in White",
+      image: "https://yoonsayoo.com/images/the-one-in-white.jpg"
+    },
+    {
+      title: "Stone Figure",
+      image: "https://yoonsayoo.com/images/stone-figure.jpg"
+    }
+  ];
+
+  function renderWorks() {
+    worksGrid.innerHTML = "";
+
+    artworks.forEach((item) => {
+      const button = document.createElement("button");
+      button.className = "thumb";
+      button.type = "button";
+      button.innerHTML = `<img src="${item.image}" alt="${item.title}">`;
+      worksGrid.appendChild(button);
     });
-  </script>
+  }
+
+  peopleBtn.addEventListener("click", () => {
+    homeView.style.display = "none";
+    worksView.style.display = "block";
+    renderWorks();
+  });
+</script>
 </body>
 </html>
