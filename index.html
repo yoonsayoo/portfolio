@@ -14,28 +14,123 @@
     <aside class="sidebar">
       <button id="homeButton" class="logo-button" type="button">Yoon Sa-yoo</button>
 
-      <div class="menu-block">
-        <div class="menu-title">Works</div>
-        <div class="menu-group">
-          <div class="menu-subtitle">Human</div>
-          <button class="series-button" data-series="people" type="button">People</button>
-          <button class="series-button" data-series="self-portraits" type="button">Self-Portraits</button>
-        </div>
-      </div>
+      <nav class="sidebar-nav">
+        <details open>
+          <summary>Works</summary>
+
+          <div class="nav-group">
+            <details open>
+              <summary>Human</summary>
+              <ul>
+                <li><button class="series-button" data-series="people" type="button">People</button></li>
+                <li><button class="series-button" data-series="self-portraits" type="button">Self-Portraits</button></li>
+              </ul>
+            </details>
+
+            <details>
+              <summary>Narrative</summary>
+              <ul>
+                <li><button class="series-button" data-series="roots" type="button">Roots</button></li>
+                <li><button class="series-button" data-series="black-room" type="button">Black Room</button></li>
+              </ul>
+            </details>
+
+            <details>
+              <summary>Still Life</summary>
+              <ul>
+                <li><button class="series-button" data-series="house" type="button">House</button></li>
+                <li><button class="series-button" data-series="objects" type="button">Objects</button></li>
+              </ul>
+            </details>
+
+            <details>
+              <summary>Nature</summary>
+              <ul>
+                <li><button class="series-button" data-series="nature" type="button">Nature</button></li>
+              </ul>
+            </details>
+
+            <details>
+              <summary>Projects</summary>
+              <ul>
+                <li><button class="series-button" data-series="laos-national-institute-of-fine-arts" type="button">Laos National Institute of Fine Arts</button></li>
+                <li><button class="series-button" data-series="room-202" type="button">Room 202</button></li>
+                <li><button class="series-button" data-series="under-the-letter" type="button">Under the Letter</button></li>
+              </ul>
+            </details>
+          </div>
+        </details>
+
+        <button class="page-button" data-page="exhibitions" type="button">Exhibitions</button>
+        <button class="page-button" data-page="texts" type="button">Texts</button>
+        <button class="page-button" data-page="cv" type="button">CV</button>
+        <button class="page-button" data-page="contact" type="button">Contact</button>
+      </nav>
     </aside>
 
     <main class="content">
-      <section id="homeView" class="view">
+      <section id="homeView" class="view is-active">
         <div class="hero-image-wrap">
           <img src="images/the-one-in-white.jpg" alt="Main artwork" class="hero-image" />
         </div>
       </section>
 
-      <section id="worksView" class="view is-hidden">
-        <h2 id="worksCurrent" class="works-title">People</h2>
-        <div id="worksGrid" class="works-grid"></div>
+      <section id="worksView" class="view">
+        <div class="view-head">
+          <h2 id="worksCurrent">People</h2>
+        </div>
+        <div class="works-grid" id="worksGrid"></div>
+      </section>
+
+      <section id="exhibitionsView" class="view text-view">
+        <div class="view-head">
+          <h2>Exhibitions</h2>
+        </div>
+        <ul class="simple-list">
+          <li>혼자 가는 먼 집</li>
+          <li>화분과 뿌리</li>
+          <li>지워지지 않는 연필 자국</li>
+        </ul>
+      </section>
+
+      <section id="textsView" class="view text-view">
+        <div class="view-head">
+          <h2>Texts</h2>
+        </div>
+        <p class="muted">Texts coming soon.</p>
+      </section>
+
+      <section id="cvView" class="view text-view">
+        <div class="view-head">
+          <h2>CV</h2>
+        </div>
+        <p class="muted">CV coming soon.</p>
+      </section>
+
+      <section id="contactView" class="view text-view">
+        <div class="view-head">
+          <h2>Contact</h2>
+        </div>
+        <p>Email: <a href="mailto:your@email.com">your@email.com</a></p>
       </section>
     </main>
+  </div>
+
+  <div class="viewer" id="viewer" aria-hidden="true">
+    <button class="viewer-close" id="viewerClose" aria-label="Close">×</button>
+    <button class="viewer-nav viewer-prev" id="viewerPrev" aria-label="Previous image">‹</button>
+
+    <div class="viewer-stage">
+      <img id="viewerImage" src="" alt="" />
+      <div class="viewer-meta">
+        <div class="viewer-title" id="viewerTitle"></div>
+        <div class="viewer-line" id="viewerYear"></div>
+        <div class="viewer-line" id="viewerMaterial"></div>
+        <div class="viewer-line" id="viewerSize"></div>
+      </div>
+    </div>
+
+    <button class="viewer-nav viewer-next" id="viewerNext" aria-label="Next image">›</button>
   </div>
 
   <script src="data.js"></script>
