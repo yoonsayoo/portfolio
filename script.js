@@ -185,4 +185,4 @@ document.addEventListener("keydown", (event) => {
   if (event.key === "ArrowLeft") showPrev();
 });
 
-setActiveView("home");
+homeView.classList.add("is-active");
