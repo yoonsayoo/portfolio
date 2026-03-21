@@ -1,22 +1,62 @@
+const seriesButtons = Array.from(document.querySelectorAll(".series-button"));
 const thumbs = Array.from(document.querySelectorAll(".thumb"));
+const worksCurrent = document.getElementById("worksCurrent");
+
 const viewer = document.getElementById("viewer");
 const viewerImage = document.getElementById("viewerImage");
-const viewerCaption = document.getElementById("viewerCaption");
+const viewerTitle = document.getElementById("viewerTitle");
+const viewerYear = document.getElementById("viewerYear");
+const viewerMaterial = document.getElementById("viewerMaterial");
+const viewerSize = document.getElementById("viewerSize");
 const viewerClose = document.getElementById("viewerClose");
 const viewerPrev = document.getElementById("viewerPrev");
 const viewerNext = document.getElementById("viewerNext");
 
-const items = thumbs.map((thumb) => ({
-  image: thumb.dataset.image,
-  title: thumb.dataset.title,
-  alt: thumb.querySelector("img")?.alt || thumb.dataset.title || ""
-}));
-
+let currentSeries = "people";
+let visibleItems = [];
 let currentIndex = 0;
 
+function formatSeriesName(series) {
+  return series
+    .split("-")
+    .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+    .join(" ");
+}
+
+function getVisibleItems() {
+  return thumbs.filter(thumb => thumb.dataset.series === currentSeries);
+}
+
+function updateGrid(series) {
+  currentSeries = series;
+
+  seriesButtons.forEach(button => {
+    button.classList.toggle("is-active", button.dataset.series === series);
+  });
+
+  thumbs.forEach(thumb => {
+    const isMatch = thumb.dataset.series === series;
+    thumb.classList.toggle("is-hidden", !isMatch);
+  });
+
+  worksCurrent.textContent = formatSeriesName(series);
+  visibleItems = getVisibleItems();
+}
+
 function openViewer(index) {
+  visibleItems = getVisibleItems();
   currentIndex = index;
-  updateViewer();
+
+  const item = visibleItems[currentIndex];
+  if (!item) return;
+
+  viewerImage.src = item.dataset.image;
+  viewerImage.alt = item.dataset.title || "";
+  viewerTitle.textContent = item.dataset.title || "";
+  viewerYear.textContent = item.dataset.year || "";
+  viewerMaterial.textContent = item.dataset.material || "";
+  viewerSize.textContent = item.dataset.size || "";
+
   viewer.classList.add("is-open");
   viewer.setAttribute("aria-hidden", "false");
   document.body.style.overflow = "hidden";
@@ -29,24 +69,41 @@ function closeViewer() {
 }
 
 function updateViewer() {
-  const item = items[currentIndex];
-  viewerImage.src = item.image;
-  viewerImage.alt = item.alt;
-  viewerCaption.textContent = item.title;
+  const item = visibleItems[currentIndex];
+  if (!item) return;
+
+  viewerImage.src = item.dataset.image;
+  viewerImage.alt = item.dataset.title || "";
+  viewerTitle.textContent = item.dataset.title || "";
+  viewerYear.textContent = item.dataset.year || "";
+  viewerMaterial.textContent = item.dataset.material || "";
+  viewerSize.textContent = item.dataset.size || "";
 }
 
 function showNext() {
-  currentIndex = (currentIndex + 1) % items.length;
+  if (!visibleItems.length) return;
+  currentIndex = (currentIndex + 1) % visibleItems.length;
   updateViewer();
 }
 
 function showPrev() {
-  currentIndex = (currentIndex - 1 + items.length) % items.length;
+  if (!visibleItems.length) return;
+  currentIndex = (currentIndex - 1 + visibleItems.length) % visibleItems.length;
   updateViewer();
 }
 
-thumbs.forEach((thumb, index) => {
-  thumb.addEventListener("click", () => openViewer(index));
+seriesButtons.forEach(button => {
+  button.addEventListener("click", () => {
+    updateGrid(button.dataset.series);
+  });
+});
+
+thumbs.forEach(thumb => {
+  thumb.addEventListener("click", () => {
+    visibleItems = getVisibleItems();
+    const index = visibleItems.indexOf(thumb);
+    openViewer(index);
+  });
 });
 
 viewerClose.addEventListener("click", closeViewer);
@@ -66,3 +123,5 @@ document.addEventListener("keydown", (event) => {
   if (event.key === "ArrowRight") showNext();
   if (event.key === "ArrowLeft") showPrev();
 });
+
+updateGrid(currentSeries);
