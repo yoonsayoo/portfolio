@@ -6,7 +6,7 @@ const artworks = [
     year: "2024",
     material: "Oil on canvas",
     size: "130 × 97 cm",
-    image: "images/the-one-in-white.jpg"
+    image: "/images/the-one-in-white.jpg"
   },
   {
     series: "people",
@@ -15,7 +15,7 @@ const artworks = [
     year: "2024",
     material: "Oil on canvas",
     size: "145 × 112 cm",
-    image: "images/stone-figure.jpg"
+    image: "/images/stone-figure.jpg"
   },
   {
     series: "self-portraits",
@@ -24,6 +24,6 @@ const artworks = [
     year: "2022",
     material: "Oil on canvas",
     size: "116 × 91 cm",
-    image: "images/old-dandelion.jpg"
+    image: "/images/old-dandelion.jpg"
   }
 ];
