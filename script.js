@@ -43,8 +43,13 @@ function formatSeriesName(series) {
 }
 
 function setActiveView(viewName) {
-  Object.values(views).forEach(view => view.classList.remove("is-active"));
-  views[viewName].classList.add("is-active");
+  Object.values(views).forEach(view => {
+    if (view) view.classList.remove("is-active");
+  });
+
+  if (views[viewName]) {
+    views[viewName].classList.add("is-active");
+  }
 
   pageButtons.forEach(button => {
     button.classList.toggle("is-active", button.dataset.page === viewName);
@@ -56,6 +61,7 @@ function setActiveView(viewName) {
 }
 
 function getVisibleItems() {
+  if (!Array.isArray(artworks)) return [];
   return artworks.filter(item => item.series === currentSeries);
 }
 
@@ -66,7 +72,7 @@ function renderGrid() {
     const button = document.createElement("button");
     button.className = "thumb";
     button.type = "button";
-    button.innerHTML = `<img src="${item.image}" alt="${item.titleEn || item.title}" />`;
+    button.innerHTML = `<img src="${item.image}" alt="${item.titleEn || item.title || ""}" />`;
 
     button.addEventListener("click", () => {
       openViewer(index);
@@ -143,23 +149,27 @@ pageButtons.forEach(button => {
   });
 });
 
-homeButton.addEventListener("click", () => {
-  setActiveView("home");
-  pageButtons.forEach(button => button.classList.remove("is-active"));
-  seriesButtons.forEach(button => button.classList.remove("is-active"));
-  window.scrollTo({ top: 0, behavior: "smooth" });
-});
+if (homeButton) {
+  homeButton.addEventListener("click", () => {
+    setActiveView("home");
+    pageButtons.forEach(button => button.classList.remove("is-active"));
+    seriesButtons.forEach(button => button.classList.remove("is-active"));
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  });
+}
 
-viewerClose.addEventListener("click", closeViewer);
-viewerNext.addEventListener("click", showNext);
-viewerPrev.addEventListener("click", showPrev);
+if (viewerClose) viewerClose.addEventListener("click", closeViewer);
+if (viewerNext) viewerNext.addEventListener("click", showNext);
+if (viewerPrev) viewerPrev.addEventListener("click", showPrev);
 
-viewer.addEventListener("click", (event) => {
-  if (event.target === viewer) closeViewer();
-});
+if (viewer) {
+  viewer.addEventListener("click", (event) => {
+    if (event.target === viewer) closeViewer();
+  });
+}
 
 document.addEventListener("keydown", (event) => {
-  if (!viewer.classList.contains("is-open")) return;
+  if (!viewer || !viewer.classList.contains("is-open")) return;
   if (event.key === "Escape") closeViewer();
   if (event.key === "ArrowRight") showNext();
   if (event.key === "ArrowLeft") showPrev();
