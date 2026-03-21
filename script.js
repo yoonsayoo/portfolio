@@ -1,6 +1,6 @@
 const seriesButtons = Array.from(document.querySelectorAll(".series-button"));
-const thumbs = Array.from(document.querySelectorAll(".thumb"));
 const worksCurrent = document.getElementById("worksCurrent");
+const worksGrid = document.getElementById("worksGrid");
 
 const viewer = document.getElementById("viewer");
 const viewerImage = document.getElementById("viewerImage");
@@ -24,7 +24,27 @@ function formatSeriesName(series) {
 }
 
 function getVisibleItems() {
-  return thumbs.filter(thumb => thumb.dataset.series === currentSeries);
+  return artworks.filter(item => item.series === currentSeries);
+}
+
+function renderGrid() {
+  worksGrid.innerHTML = "";
+
+  visibleItems.forEach((item, index) => {
+    const button = document.createElement("button");
+    button.className = "thumb";
+    button.type = "button";
+
+    button.innerHTML = `
+      <img src="${item.image}" alt="${item.titleEn || item.title}" />
+    `;
+
+    button.addEventListener("click", () => {
+      openViewer(index);
+    });
+
+    worksGrid.appendChild(button);
+  });
 }
 
 function updateGrid(series) {
@@ -34,28 +54,14 @@ function updateGrid(series) {
     button.classList.toggle("is-active", button.dataset.series === series);
   });
 
-  thumbs.forEach(thumb => {
-    const isMatch = thumb.dataset.series === series;
-    thumb.classList.toggle("is-hidden", !isMatch);
-  });
-
   worksCurrent.textContent = formatSeriesName(series);
   visibleItems = getVisibleItems();
+  renderGrid();
 }
 
 function openViewer(index) {
-  visibleItems = getVisibleItems();
   currentIndex = index;
-
-  const item = visibleItems[currentIndex];
-  if (!item) return;
-
-  viewerImage.src = item.dataset.image;
-  viewerImage.alt = item.dataset.title || "";
-  viewerTitle.textContent = item.dataset.title || "";
-  viewerYear.textContent = item.dataset.year || "";
-  viewerMaterial.textContent = item.dataset.material || "";
-  viewerSize.textContent = item.dataset.size || "";
+  updateViewer();
 
   viewer.classList.add("is-open");
   viewer.setAttribute("aria-hidden", "false");
@@ -72,12 +78,12 @@ function updateViewer() {
   const item = visibleItems[currentIndex];
   if (!item) return;
 
-  viewerImage.src = item.dataset.image;
-  viewerImage.alt = item.dataset.title || "";
-  viewerTitle.textContent = item.dataset.title || "";
-  viewerYear.textContent = item.dataset.year || "";
-  viewerMaterial.textContent = item.dataset.material || "";
-  viewerSize.textContent = item.dataset.size || "";
+  viewerImage.src = item.image;
+  viewerImage.alt = item.titleEn || item.title || "";
+  viewerTitle.textContent = item.titleEn || item.title || "";
+  viewerYear.textContent = item.year || "";
+  viewerMaterial.textContent = item.material || "";
+  viewerSize.textContent = item.size || "";
 }
 
 function showNext() {
@@ -95,14 +101,11 @@ function showPrev() {
 seriesButtons.forEach(button => {
   button.addEventListener("click", () => {
     updateGrid(button.dataset.series);
-  });
-});
 
-thumbs.forEach(thumb => {
-  thumb.addEventListener("click", () => {
-    visibleItems = getVisibleItems();
-    const index = visibleItems.indexOf(thumb);
-    openViewer(index);
+    document.getElementById("works").scrollIntoView({
+      behavior: "smooth",
+      block: "start"
+    });
   });
 });
 
