@@ -1,4 +1,14 @@
 const seriesButtons = Array.from(document.querySelectorAll(".series-button"));
+const pageButtons = Array.from(document.querySelectorAll(".page-button"));
+const homeButton = document.getElementById("homeButton");
+
+const homeView = document.getElementById("homeView");
+const worksView = document.getElementById("worksView");
+const exhibitionsView = document.getElementById("exhibitionsView");
+const textsView = document.getElementById("textsView");
+const cvView = document.getElementById("cvView");
+const contactView = document.getElementById("contactView");
+
 const worksCurrent = document.getElementById("worksCurrent");
 const worksGrid = document.getElementById("worksGrid");
 
@@ -12,6 +22,15 @@ const viewerClose = document.getElementById("viewerClose");
 const viewerPrev = document.getElementById("viewerPrev");
 const viewerNext = document.getElementById("viewerNext");
 
+const views = {
+  home: homeView,
+  works: worksView,
+  exhibitions: exhibitionsView,
+  texts: textsView,
+  cv: cvView,
+  contact: contactView
+};
+
 let currentSeries = "people";
 let visibleItems = [];
 let currentIndex = 0;
@@ -21,6 +40,19 @@ function formatSeriesName(series) {
     .split("-")
     .map(word => word.charAt(0).toUpperCase() + word.slice(1))
     .join(" ");
+}
+
+function setActiveView(viewName) {
+  Object.values(views).forEach(view => view.classList.remove("is-active"));
+  views[viewName].classList.add("is-active");
+
+  pageButtons.forEach(button => {
+    button.classList.toggle("is-active", button.dataset.page === viewName);
+  });
+
+  if (viewName !== "works") {
+    seriesButtons.forEach(button => button.classList.remove("is-active"));
+  }
 }
 
 function getVisibleItems() {
@@ -34,10 +66,7 @@ function renderGrid() {
     const button = document.createElement("button");
     button.className = "thumb";
     button.type = "button";
-
-    button.innerHTML = `
-      <img src="${item.image}" alt="${item.titleEn || item.title}" />
-    `;
+    button.innerHTML = `<img src="${item.image}" alt="${item.titleEn || item.title}" />`;
 
     button.addEventListener("click", () => {
       openViewer(index);
@@ -49,20 +78,23 @@ function renderGrid() {
 
 function updateGrid(series) {
   currentSeries = series;
+  visibleItems = getVisibleItems();
 
   seriesButtons.forEach(button => {
     button.classList.toggle("is-active", button.dataset.series === series);
   });
 
+  pageButtons.forEach(button => button.classList.remove("is-active"));
+
   worksCurrent.textContent = formatSeriesName(series);
-  visibleItems = getVisibleItems();
   renderGrid();
+  setActiveView("works");
+  window.scrollTo({ top: 0, behavior: "smooth" });
 }
 
 function openViewer(index) {
   currentIndex = index;
   updateViewer();
-
   viewer.classList.add("is-open");
   viewer.setAttribute("aria-hidden", "false");
   document.body.style.overflow = "hidden";
@@ -101,12 +133,21 @@ function showPrev() {
 seriesButtons.forEach(button => {
   button.addEventListener("click", () => {
     updateGrid(button.dataset.series);
-
-    document.getElementById("works").scrollIntoView({
-      behavior: "smooth",
-      block: "start"
-    });
   });
+});
+
+pageButtons.forEach(button => {
+  button.addEventListener("click", () => {
+    setActiveView(button.dataset.page);
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  });
+});
+
+homeButton.addEventListener("click", () => {
+  setActiveView("home");
+  pageButtons.forEach(button => button.classList.remove("is-active"));
+  seriesButtons.forEach(button => button.classList.remove("is-active"));
+  window.scrollTo({ top: 0, behavior: "smooth" });
 });
 
 viewerClose.addEventListener("click", closeViewer);
@@ -114,17 +155,14 @@ viewerNext.addEventListener("click", showNext);
 viewerPrev.addEventListener("click", showPrev);
 
 viewer.addEventListener("click", (event) => {
-  if (event.target === viewer) {
-    closeViewer();
-  }
+  if (event.target === viewer) closeViewer();
 });
 
 document.addEventListener("keydown", (event) => {
   if (!viewer.classList.contains("is-open")) return;
-
   if (event.key === "Escape") closeViewer();
   if (event.key === "ArrowRight") showNext();
   if (event.key === "ArrowLeft") showPrev();
 });
 
-updateGrid(currentSeries);
+setActiveView("home");
