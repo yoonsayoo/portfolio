@@ -298,3 +298,48 @@ button {
     grid-template-columns: 1fr;
   }
 }
+
+.menu-sub {
+  display: block;
+  border: 0;
+  background: transparent;
+  padding: 0 0 0 10px;
+  margin: 0;
+  color: #555555;
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+
+.works-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+  margin-top: 16px;
+}
+
+.thumb {
+  border: 0;
+  background: transparent;
+  padding: 0;
+  margin: 0;
+  cursor: pointer;
+}
+
+.thumb img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+@media (max-width: 900px) {
+  .works-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 640px) {
+  .works-grid {
+    grid-template-columns: 1fr;
+  }
+}
