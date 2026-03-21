@@ -15,14 +15,6 @@
     <div class="logo">
       <a href="#home">Yoon Sa-yoo</a>
     </div>
-
-    <nav class="top-nav">
-      <a href="#works">Works</a>
-      <a href="#exhibitions">Exhibitions</a>
-      <a href="#texts">Texts</a>
-      <a href="#cv">CV</a>
-      <a href="#contact">Contact</a>
-    </nav>
   </header>
 
   <main>
@@ -47,101 +39,126 @@
           <details open>
             <summary>Human</summary>
             <ul>
-              <li><a href="#">People</a></li>
-              <li><a href="#">Self-Portraits</a></li>
+              <li><button class="series-button is-active" data-series="people">People</button></li>
+              <li><button class="series-button" data-series="self-portraits">Self-Portraits</button></li>
             </ul>
           </details>
 
           <details>
             <summary>Narrative</summary>
             <ul>
-              <li><a href="#">Roots</a></li>
-              <li><a href="#">Black Room</a></li>
+              <li><button class="series-button" data-series="roots">Roots</button></li>
+              <li><button class="series-button" data-series="black-room">Black Room</button></li>
             </ul>
           </details>
 
           <details>
             <summary>Still Life</summary>
             <ul>
-              <li><a href="#">House</a></li>
-              <li><a href="#">Objects</a></li>
+              <li><button class="series-button" data-series="house">House</button></li>
+              <li><button class="series-button" data-series="objects">Objects</button></li>
             </ul>
           </details>
 
           <details>
             <summary>Nature</summary>
+            <ul>
+              <li><button class="series-button" data-series="nature">Nature</button></li>
+            </ul>
           </details>
 
           <details>
             <summary>Projects</summary>
             <ul>
-              <li><a href="#">Laos National Institute of Fine Arts</a></li>
-              <li><a href="#">Room 202</a></li>
-              <li><a href="#">Under the Letter</a></li>
+              <li><button class="series-button" data-series="laos-national-institute-of-fine-arts">Laos National Institute of Fine Arts</button></li>
+              <li><button class="series-button" data-series="room-202">Room 202</button></li>
+              <li><button class="series-button" data-series="under-the-letter">Under the Letter</button></li>
             </ul>
           </details>
         </aside>
 
-        <div class="works-grid">
-          <button
-            class="thumb"
-            type="button"
-            data-index="0"
-            data-title="Long Marsh"
-            data-image="images/work-01.jpg"
-          >
-            <img src="images/work-01.jpg" alt="Long Marsh" />
-          </button>
+        <div class="works-main">
+          <div class="works-current" id="worksCurrent">People</div>
 
-          <button
-            class="thumb"
-            type="button"
-            data-index="1"
-            data-title="Stone Figure"
-            data-image="images/work-02.jpg"
-          >
-            <img src="images/work-02.jpg" alt="Stone Figure" />
-          </button>
+          <div class="works-grid" id="worksGrid">
+            <button
+              class="thumb"
+              type="button"
+              data-series="people"
+              data-title="Long Marsh"
+              data-year="2024"
+              data-material="Oil on canvas"
+              data-size="130 × 97 cm"
+              data-image="images/work-01.jpg"
+            >
+              <img src="images/work-01.jpg" alt="Long Marsh" />
+            </button>
 
-          <button
-            class="thumb"
-            type="button"
-            data-index="2"
-            data-title="Matchstick Tree"
-            data-image="images/work-03.jpg"
-          >
-            <img src="images/work-03.jpg" alt="Matchstick Tree" />
-          </button>
+            <button
+              class="thumb"
+              type="button"
+              data-series="people"
+              data-title="Stone Figure"
+              data-year="2024"
+              data-material="Oil on canvas"
+              data-size="145 × 112 cm"
+              data-image="images/work-02.jpg"
+            >
+              <img src="images/work-02.jpg" alt="Stone Figure" />
+            </button>
 
-          <button
-            class="thumb"
-            type="button"
-            data-index="3"
-            data-title="An Old Dandelion"
-            data-image="images/work-04.jpg"
-          >
-            <img src="images/work-04.jpg" alt="An Old Dandelion" />
-          </button>
+            <button
+              class="thumb"
+              type="button"
+              data-series="people"
+              data-title="Matchstick Tree"
+              data-year="2023"
+              data-material="Oil on canvas"
+              data-size="91 × 73 cm"
+              data-image="images/work-03.jpg"
+            >
+              <img src="images/work-03.jpg" alt="Matchstick Tree" />
+            </button>
 
-          <button
-            class="thumb"
-            type="button"
-            data-index="4"
-            data-title="Your Cold Heart"
-            data-image="images/work-05.jpg"
-          >
-            <img src="images/work-05.jpg" alt="Your Cold Heart" />
-          </button>
+            <button
+              class="thumb"
+              type="button"
+              data-series="self-portraits"
+              data-title="An Old Dandelion"
+              data-year="2022"
+              data-material="Oil on canvas"
+              data-size="116 × 91 cm"
+              data-image="images/work-04.jpg"
+            >
+              <img src="images/work-04.jpg" alt="An Old Dandelion" />
+            </button>
 
-          <button
-            class="thumb"
-            type="button"
-            data-index="5"
-            data-title="Fish Stairs"
-            data-image="images/work-06.jpg"
-          >
-            <img src="images/work-06.jpg" alt="Fish Stairs" />
-          </button>
+            <button
+              class="thumb"
+              type="button"
+              data-series="self-portraits"
+              data-title="Your Cold Heart"
+              data-year="2022"
+              data-material="Oil on canvas"
+              data-size="100 × 80 cm"
+              data-image="images/work-05.jpg"
+            >
+              <img src="images/work-05.jpg" alt="Your Cold Heart" />
+            </button>
+
+            <button
+              class="thumb"
+              type="button"
+              data-series="roots"
+              data-title="Fish Stairs"
+              data-year="2021"
+              data-material="Oil on canvas"
+              data-size="162 × 130 cm"
+              data-image="images/work-06.jpg"
+            >
+              <img src="images/work-06.jpg" alt="Fish Stairs" />
+            </button>
+          </div>
         </div>
       </div>
     </section>
@@ -175,7 +192,7 @@
       <div class="section-head">
         <h2>Contact</h2>
       </div>
-      <p>Email: <a href="yoonsayoo@naver.com">yoonsayoo@naver.com</a></p>
+      <p>Email: <a href="mailto:your@email.com">your@email.com</a></p>
     </section>
   </main>
 
@@ -185,7 +202,12 @@
 
     <div class="viewer-stage">
       <img id="viewerImage" src="" alt="" />
-      <div class="viewer-caption" id="viewerCaption"></div>
+      <div class="viewer-meta">
+        <div class="viewer-title" id="viewerTitle"></div>
+        <div class="viewer-line" id="viewerYear"></div>
+        <div class="viewer-line" id="viewerMaterial"></div>
+        <div class="viewer-line" id="viewerSize"></div>
+      </div>
     </div>
 
     <button class="viewer-nav viewer-next" id="viewerNext" aria-label="Next image">›</button>
