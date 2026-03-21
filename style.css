@@ -2,12 +2,9 @@
   box-sizing: border-box;
 }
 
-html {
-  scroll-behavior: smooth;
-}
-
-body {
+html, body {
   margin: 0;
+  padding: 0;
   background: #ffffff;
   color: #111111;
   font-family: "Inter", Arial, sans-serif;
@@ -29,108 +26,135 @@ button {
   font: inherit;
 }
 
-.site-header {
-  position: sticky;
-  top: 0;
-  z-index: 50;
-  padding: 18px 24px;
-  background: rgba(255, 255, 255, 0.96);
+.site-shell {
+  display: grid;
+  grid-template-columns: 240px 1fr;
+  min-height: 100vh;
 }
 
-.logo a {
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 240px;
+  height: 100vh;
+  padding: 20px 20px 24px;
+  overflow-y: auto;
+  background: #ffffff;
+  border-right: 0;
+}
+
+.logo {
+  margin-bottom: 28px;
+}
+
+.logo-button {
+  border: 0;
+  background: transparent;
+  padding: 0;
+  cursor: pointer;
   font-size: 18px;
   font-weight: 500;
   letter-spacing: -0.02em;
+  color: #111111;
 }
 
-.section {
-  padding: 24px;
+.sidebar-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }
 
-.home-section {
-  padding-top: 12px;
-}
-
-.home-images {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 16px;
-}
-
-.home-image img {
-  width: 100%;
-  height: auto;
-}
-
-.section-head {
-  margin-bottom: 20px;
-}
-
-.section-head h2 {
+.sidebar-nav details {
   margin: 0;
-  font-size: 14px;
-  font-weight: 500;
 }
 
-.works-layout {
-  display: grid;
-  grid-template-columns: 220px 1fr;
-  gap: 32px;
-  align-items: start;
-}
-
-.works-sidebar {
-  position: sticky;
-  top: 76px;
-}
-
-.works-sidebar details {
-  margin-bottom: 10px;
-}
-
-.works-sidebar summary {
+.sidebar-nav summary {
   cursor: pointer;
   list-style: none;
   font-weight: 500;
   margin-bottom: 8px;
 }
 
-.works-sidebar summary::-webkit-details-marker {
+.sidebar-nav summary::-webkit-details-marker {
   display: none;
 }
 
-.works-sidebar ul {
-  margin: 0 0 10px 0;
+.nav-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-left: 0;
+}
+
+.sidebar-nav ul {
+  margin: 0;
   padding: 0 0 0 10px;
   list-style: none;
 }
 
-.works-sidebar li {
+.sidebar-nav li {
   margin-bottom: 6px;
 }
 
-.series-button {
+.series-button,
+.page-button {
   border: 0;
   background: transparent;
   padding: 0;
-  color: #555555;
-  cursor: pointer;
   text-align: left;
+  cursor: pointer;
+  color: #555555;
 }
 
 .series-button:hover,
-.series-button.is-active {
+.series-button.is-active,
+.page-button:hover,
+.page-button.is-active {
   color: #111111;
 }
 
-.works-main {
-  min-width: 0;
+.page-button {
+  font-weight: 500;
 }
 
-.works-current {
-  margin-bottom: 14px;
-  font-size: 13px;
-  color: #111111;
+.content {
+  margin-left: 240px;
+  min-height: 100vh;
+  padding: 20px 24px;
+}
+
+.view {
+  display: none;
+}
+
+.view.is-active {
+  display: block;
+}
+
+.hero-image-wrap {
+  width: 100%;
+  min-height: calc(100vh - 40px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero-image {
+  max-width: min(100%, 1200px);
+  max-height: calc(100vh - 80px);
+  width: auto;
+  height: auto;
+}
+
+.view-head {
+  margin-bottom: 18px;
+}
+
+.view-head h2 {
+  margin: 0;
+  font-size: 14px;
+  font-weight: 500;
 }
 
 .works-grid {
@@ -159,12 +183,8 @@ button {
   opacity: 0.88;
 }
 
-.thumb.is-hidden {
-  display: none;
-}
-
-.text-section {
-  max-width: 720px;
+.text-view {
+  max-width: 760px;
 }
 
 .simple-list {
@@ -260,30 +280,41 @@ button {
 }
 
 @media (max-width: 900px) {
-  .works-layout {
+  .site-shell {
     grid-template-columns: 1fr;
   }
 
-  .works-sidebar {
+  .sidebar {
     position: static;
+    width: auto;
+    height: auto;
+    padding: 18px;
+  }
+
+  .content {
+    margin-left: 0;
+    padding: 0 18px 18px;
+  }
+
+  .hero-image-wrap {
+    min-height: auto;
+    align-items: flex-start;
+    justify-content: flex-start;
+  }
+
+  .hero-image {
+    max-height: none;
+    width: 100%;
   }
 
   .works-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-
-  .home-images {
-    grid-template-columns: 1fr;
   }
 }
 
 @media (max-width: 640px) {
   .works-grid {
     grid-template-columns: 1fr;
-  }
-
-  .section {
-    padding: 18px;
   }
 
   .viewer-nav {
