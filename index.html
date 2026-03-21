@@ -86,7 +86,7 @@
     <div class="menu">
       <div class="menu-title">Works</div>
       <div class="menu-sub">Human</div>
-      <div class="menu-sub">People</div>
+      <button class="menu-sub" id="peopleBtn">People</button>
       <div class="menu-sub">Self-Portraits</div>
       <div class="menu-sub">Narrative</div>
       <div class="menu-sub">Roots</div>
@@ -107,12 +107,31 @@
   </aside>
 
   <main class="content">
-    <p>IMAGE TEST</p>
-    <img
-      src="https://yoonsayoo.com/images/the-one-in-white.jpg"
-      alt="Main artwork"
-      class="hero-image"
-    />
+
+    <!-- HOME -->
+    <div id="homeView">
+      <p>HOME</p>
+      <img
+        src="https://yoonsayoo.com/images/the-one-in-white.jpg"
+        class="hero-image"
+      />
+    </div>
+
+    <!-- WORKS -->
+    <div id="worksView" style="display:none;">
+      <p>WORKS</p>
+    </div>
+
   </main>
+  <script>
+    const homeView = document.getElementById("homeView");
+    const worksView = document.getElementById("worksView");
+    const peopleBtn = document.getElementById("peopleBtn");
+
+    peopleBtn.addEventListener("click", () => {
+      homeView.style.display = "none";
+      worksView.style.display = "block";
+    });
+  </script>
 </body>
 </html>
