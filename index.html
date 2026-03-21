@@ -7,7 +7,184 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css" />
+  <style>
+    * { box-sizing: border-box; }
+    html, body {
+      margin: 0;
+      padding: 0;
+      background: #fff;
+      color: #111;
+      font-family: "Inter", Arial, sans-serif;
+      font-size: 14px;
+      line-height: 1.5;
+    }
+    img { display: block; max-width: 100%; }
+    button { font: inherit; }
+
+    .site-shell {
+      display: grid;
+      grid-template-columns: 240px 1fr;
+      min-height: 100vh;
+    }
+
+    .sidebar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 240px;
+      height: 100vh;
+      padding: 20px;
+      overflow-y: auto;
+      background: #fff;
+    }
+
+    .logo-button {
+      border: 0;
+      background: transparent;
+      padding: 0;
+      margin-bottom: 28px;
+      cursor: pointer;
+      font-size: 18px;
+      font-weight: 500;
+      color: #111;
+      text-align: left;
+    }
+
+    .sidebar-nav {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .sidebar-nav details { margin: 0; }
+    .sidebar-nav summary {
+      cursor: pointer;
+      list-style: none;
+      font-weight: 500;
+      margin-bottom: 8px;
+    }
+    .sidebar-nav summary::-webkit-details-marker { display: none; }
+
+    .nav-group {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .sidebar-nav ul {
+      margin: 0;
+      padding: 0 0 0 10px;
+      list-style: none;
+    }
+
+    .sidebar-nav li { margin-bottom: 6px; }
+
+    .series-button,
+    .page-button {
+      border: 0;
+      background: transparent;
+      padding: 0;
+      text-align: left;
+      cursor: pointer;
+      color: #555;
+    }
+
+    .series-button:hover,
+    .series-button.is-active,
+    .page-button:hover,
+    .page-button.is-active {
+      color: #111;
+    }
+
+    .page-button { font-weight: 500; }
+
+    .content {
+      margin-left: 240px;
+      min-height: 100vh;
+      padding: 20px 24px;
+    }
+
+    .view { display: none; }
+    .view.is-active { display: block; }
+
+    .hero-image-wrap {
+      width: 100%;
+      min-height: calc(100vh - 40px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .hero-image {
+      display: block;
+      width: 100%;
+      max-width: 900px;
+      height: auto;
+    }
+
+    .view-head {
+      margin-bottom: 18px;
+    }
+
+    .view-head h2 {
+      margin: 0;
+      font-size: 14px;
+      font-weight: 500;
+    }
+
+    .works-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .thumb {
+      appearance: none;
+      border: 0;
+      background: transparent;
+      padding: 0;
+      margin: 0;
+      cursor: pointer;
+    }
+
+    .thumb img {
+      width: 100%;
+      height: auto;
+    }
+
+    .text-view { max-width: 760px; }
+
+    .simple-list {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .simple-list li { margin-bottom: 10px; }
+    .muted { color: #666; }
+
+    @media (max-width: 900px) {
+      .site-shell { grid-template-columns: 1fr; }
+      .sidebar {
+        position: static;
+        width: auto;
+        height: auto;
+      }
+      .content {
+        margin-left: 0;
+        padding: 0 18px 18px;
+      }
+      .works-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 640px) {
+      .works-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
 </head>
 <body>
   <div class="site-shell">
@@ -70,7 +247,9 @@
 
     <main class="content">
       <section id="homeView" class="view is-active">
-        <img src="images/the-one-in-white.jpg" style="width:500px;">
+        <div class="hero-image-wrap">
+          <img src="images/the-one-in-white.jpg" alt="Main artwork" class="hero-image" />
+        </div>
       </section>
 
       <section id="worksView" class="view">
@@ -81,9 +260,7 @@
       </section>
 
       <section id="exhibitionsView" class="view text-view">
-        <div class="view-head">
-          <h2>Exhibitions</h2>
-        </div>
+        <div class="view-head"><h2>Exhibitions</h2></div>
         <ul class="simple-list">
           <li>혼자 가는 먼 집</li>
           <li>화분과 뿌리</li>
@@ -92,46 +269,142 @@
       </section>
 
       <section id="textsView" class="view text-view">
-        <div class="view-head">
-          <h2>Texts</h2>
-        </div>
+        <div class="view-head"><h2>Texts</h2></div>
         <p class="muted">Texts coming soon.</p>
       </section>
 
       <section id="cvView" class="view text-view">
-        <div class="view-head">
-          <h2>CV</h2>
-        </div>
+        <div class="view-head"><h2>CV</h2></div>
         <p class="muted">CV coming soon.</p>
       </section>
 
       <section id="contactView" class="view text-view">
-        <div class="view-head">
-          <h2>Contact</h2>
-        </div>
+        <div class="view-head"><h2>Contact</h2></div>
         <p>Email: <a href="mailto:your@email.com">your@email.com</a></p>
       </section>
     </main>
   </div>
 
-  <div class="viewer" id="viewer" aria-hidden="true">
-    <button class="viewer-close" id="viewerClose" aria-label="Close">×</button>
-    <button class="viewer-nav viewer-prev" id="viewerPrev" aria-label="Previous image">‹</button>
+  <script>
+    const artworks = [
+      {
+        series: "people",
+        title: "흰옷 입은 사람",
+        titleEn: "The One in White",
+        year: "2024",
+        material: "Oil on canvas",
+        size: "130 × 97 cm",
+        image: "images/the-one-in-white.jpg"
+      },
+      {
+        series: "people",
+        title: "돌사람",
+        titleEn: "Stone Figure",
+        year: "2024",
+        material: "Oil on canvas",
+        size: "145 × 112 cm",
+        image: "images/stone-figure.jpg"
+      },
+      {
+        series: "self-portraits",
+        title: "늙은 민들레",
+        titleEn: "An Old Dandelion",
+        year: "2022",
+        material: "Oil on canvas",
+        size: "116 × 91 cm",
+        image: "images/old-dandelion.jpg"
+      }
+    ];
 
-    <div class="viewer-stage">
-      <img id="viewerImage" src="" alt="" />
-      <div class="viewer-meta">
-        <div class="viewer-title" id="viewerTitle"></div>
-        <div class="viewer-line" id="viewerYear"></div>
-        <div class="viewer-line" id="viewerMaterial"></div>
-        <div class="viewer-line" id="viewerSize"></div>
-      </div>
-    </div>
+    const seriesButtons = Array.from(document.querySelectorAll(".series-button"));
+    const pageButtons = Array.from(document.querySelectorAll(".page-button"));
+    const homeButton = document.getElementById("homeButton");
 
-    <button class="viewer-nav viewer-next" id="viewerNext" aria-label="Next image">›</button>
-  </div>
+    const homeView = document.getElementById("homeView");
+    const worksView = document.getElementById("worksView");
+    const exhibitionsView = document.getElementById("exhibitionsView");
+    const textsView = document.getElementById("textsView");
+    const cvView = document.getElementById("cvView");
+    const contactView = document.getElementById("contactView");
 
-  <script src="data.js"></script>
-  <script src="script.js"></script>
+    const worksCurrent = document.getElementById("worksCurrent");
+    const worksGrid = document.getElementById("worksGrid");
+
+    const views = {
+      home: homeView,
+      works: worksView,
+      exhibitions: exhibitionsView,
+      texts: textsView,
+      cv: cvView,
+      contact: contactView
+    };
+
+    function formatSeriesName(series) {
+      return series
+        .split("-")
+        .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+        .join(" ");
+    }
+
+    function setActiveView(viewName) {
+      Object.values(views).forEach(view => {
+        if (view) view.classList.remove("is-active");
+      });
+
+      if (views[viewName]) {
+        views[viewName].classList.add("is-active");
+      }
+
+      pageButtons.forEach(button => {
+        button.classList.toggle("is-active", button.dataset.page === viewName);
+      });
+
+      if (viewName !== "works") {
+        seriesButtons.forEach(button => button.classList.remove("is-active"));
+      }
+    }
+
+    function renderSeries(series) {
+      const items = artworks.filter(item => item.series === series);
+
+      worksGrid.innerHTML = "";
+      worksCurrent.textContent = formatSeriesName(series);
+
+      items.forEach(item => {
+        const button = document.createElement("button");
+        button.className = "thumb";
+        button.type = "button";
+        button.innerHTML = '<img src="' + item.image + '" alt="' + (item.titleEn || item.title) + '">';
+        worksGrid.appendChild(button);
+      });
+
+      seriesButtons.forEach(button => {
+        button.classList.toggle("is-active", button.dataset.series === series);
+      });
+
+      pageButtons.forEach(button => button.classList.remove("is-active"));
+      setActiveView("works");
+    }
+
+    seriesButtons.forEach(button => {
+      button.addEventListener("click", () => {
+        renderSeries(button.dataset.series);
+      });
+    });
+
+    pageButtons.forEach(button => {
+      button.addEventListener("click", () => {
+        setActiveView(button.dataset.page);
+      });
+    });
+
+    homeButton.addEventListener("click", () => {
+      setActiveView("home");
+      seriesButtons.forEach(button => button.classList.remove("is-active"));
+      pageButtons.forEach(button => button.classList.remove("is-active"));
+    });
+
+    setActiveView("home");
+  </script>
 </body>
 </html>
