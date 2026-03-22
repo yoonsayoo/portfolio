@@ -311,3 +311,40 @@ a {
     grid-template-columns: 1fr;
   }
 }
+.menu {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  color: #555555;
+  font-size: 14px;
+}
+
+.menu-title {
+  color: #111111;
+  font-weight: 500;
+  margin-bottom: 4px;
+}
+
+.menu-subtitle {
+  padding-left: 10px;
+  color: #111111;
+}
+
+.menu-button {
+  display: block;
+  border: 0;
+  background: transparent;
+  padding: 0 0 0 10px;
+  margin: 0;
+  color: #555555;
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+
+.menu-button.is-active,
+.menu-button:hover,
+.page-button.is-active,
+.page-button:hover {
+  color: #111111;
+}
