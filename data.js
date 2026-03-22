@@ -25,7 +25,6 @@ const siteStructure = {
         { key: "roots", label: "화분과 뿌리" },
         { key: "black-room", label: "검은 방" },
         { key: "room-202", label: "202호" },
-        { key: "under-the-letter", label: "Under the letter" }
       ]
     }
   ],
@@ -158,19 +157,6 @@ const artworks = [
   //   image: "/images/room-202-1.jpg"
   // },
 
-  /* =========================
-     ✉️ 이야기 → Under the letter
-  ========================= */
-  // {
-  //   series: "under-the-letter",
-  //   title: "작품명",
-  //   titleEn: "English Title",
-  //   year: "2024",
-  //   material: "Oil on canvas",
-  //   size: "100 × 80 cm",
-  //   image: "/images/under-the-letter-1.jpg"
-  // }
-];
 
 const exhibitions = [
   {
