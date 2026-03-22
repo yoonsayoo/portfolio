@@ -10,7 +10,7 @@ const siteStructure = {
       ]
     },
     {
-      title: "정물",
+      title: "작은 사물들",
       key: "objects",
       label: "작은 사물들"
     },
