@@ -4,7 +4,7 @@ const siteStructure = {
     {
       title: "사람",
       items: [
-        { key: "people", label: "혼자 있는 사람들" },
+        { key: "people", label: "사람들" },
         { key: "self-portraits", label: "자화상" }
       ]
     },
