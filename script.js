@@ -5,6 +5,17 @@ const homeView = document.getElementById("homeView");
 const worksView = document.getElementById("worksView");
 const exhibitionsView = document.getElementById("exhibitionsView");
 const textsView = document.getElementById("textsView");
+
+const exhibitionDetailView = document.getElementById("exhibitionDetailView");
+
+const exhibitionsGrid = document.getElementById("exhibitionsGrid");
+const exhibitionBackButton = document.getElementById("exhibitionBackButton");
+const exhibitionDetailTitle = document.getElementById("exhibitionDetailTitle");
+const exhibitionDetailMeta = document.getElementById("exhibitionDetailMeta");
+const exhibitionDetailCover = document.getElementById("exhibitionDetailCover");
+const exhibitionDetailText = document.getElementById("exhibitionDetailText");
+const exhibitionDetailImages = document.getElementById("exhibitionDetailImages");
+
 const cvView = document.getElementById("cvView");
 const contactView = document.getElementById("contactView");
 
@@ -25,6 +36,7 @@ const views = {
   home: homeView,
   works: worksView,
   exhibitions: exhibitionsView,
+  exhibitionDetail: exhibitionDetailView,
   texts: textsView,
   cv: cvView,
   contact: contactView
@@ -71,6 +83,68 @@ function getVisibleItems() {
 
 function renderGrid() {
   if (!worksGrid) return;
+
+
+function renderExhibitionsGrid() {
+  if (!exhibitionsGrid) return;
+
+  exhibitionsGrid.innerHTML = "";
+
+  exhibitions.forEach((item) => {
+    const button = document.createElement("button");
+    button.className = "exhibition-card";
+    button.type = "button";
+
+    button.innerHTML = `
+      <img src="${item.thumbnail}" alt="${item.title}" />
+      <div class="exhibition-card-title">${item.title}</div>
+      <div class="exhibition-card-meta">${item.year} · ${item.venue}</div>
+    `;
+
+    button.addEventListener("click", () => {
+      openExhibitionDetail(item.slug);
+    });
+
+    exhibitionsGrid.appendChild(button);
+  });
+}
+
+
+function openExhibitionDetail(slug) {
+  const item = exhibitions.find((exhibition) => exhibition.slug === slug);
+  if (!item) return;
+
+  if (exhibitionDetailTitle) {
+    exhibitionDetailTitle.textContent = item.title;
+  }
+
+  if (exhibitionDetailMeta) {
+    exhibitionDetailMeta.textContent = `${item.year} · ${item.venue}`;
+  }
+
+  if (exhibitionDetailCover) {
+    exhibitionDetailCover.src = item.cover;
+    exhibitionDetailCover.alt = item.title;
+  }
+
+  if (exhibitionDetailText) {
+    exhibitionDetailText.textContent = item.text || "";
+  }
+
+  if (exhibitionDetailImages) {
+    exhibitionDetailImages.innerHTML = "";
+
+    (item.images || []).forEach((src) => {
+      const img = document.createElement("img");
+      img.src = src;
+      img.alt = item.title;
+      exhibitionDetailImages.appendChild(img);
+    });
+  }
+
+  setActiveView("exhibitionDetail");
+}
+  
 
   worksGrid.innerHTML = "";
 
@@ -230,6 +304,10 @@ function renderSidebar() {
 
     button.addEventListener("click", () => {
       setActiveView(page.key);
+
+      if (page.key === "exhibitions") {
+        renderExhibitionsGrid();
+      }
     });
 
     sidebarNav.appendChild(button);
@@ -268,7 +346,12 @@ document.addEventListener("keydown", (event) => {
   if (event.key === "ArrowLeft") showPrev();
 });
 
-renderSidebar();
+if (exhibitionBackButton) {
+  exhibitionBackButton.addEventListener("click", () => {
+    setActiveView("exhibitions");
+  });
+}
+
 
 const emailButton = document.querySelector(".email-copy");
 const feedback = document.getElementById("copyFeedback");
@@ -288,3 +371,6 @@ if (emailButton) {
     });
   });
 }
+
+renderSidebar();
+renderExhibitionsGrid();
