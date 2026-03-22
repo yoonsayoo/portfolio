@@ -308,6 +308,22 @@ a {
   color: #111111;
 }
 
+.email-copy {
+  border: none;
+  background: none;
+  padding: 0;
+  font: inherit;
+  color: #111;
+  cursor: pointer;
+}
+
+.copy-feedback {
+  display: block;
+  margin-top: 8px;
+  font-size: 11px;
+  color: #999;
+}
+
 
 /* =========================
    8. RESPONSIVE
