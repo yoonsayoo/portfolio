@@ -10,9 +10,9 @@ const siteStructure = {
       ]
     },
     {
-      title: "작은 사물들",
+      title: "사물",
       key: "objects",
-      label: "작은 사물들"
+      label: "사물"
     },
     {
       title: "자연",
@@ -22,8 +22,8 @@ const siteStructure = {
     {
       title: "이야기",
       items: [
-        { key: "roots", label: "나타샤 이야기" },
-        { key: "black-room", label: "검은방" },
+        { key: "roots", label: "화분과 뿌리" },
+        { key: "black-room", label: "검은 방" },
         { key: "room-202", label: "202호" },
         { key: "under-the-letter", label: "Under the letter" }
       ]
