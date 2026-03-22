@@ -364,10 +364,13 @@ a {
 }
 
 .viewer-meta {
-  width: min(92vw, 1400px);
-  margin-top: 20px;
-  font-size: 13px;
-  color: #555555;
+  position: absolute;
+  bottom: 12px;
+  right: 12px;
+
+  text-align: right;
+  font-size: 12px;
+  color: #111;
 }
 
 .viewer-title {
@@ -403,6 +406,17 @@ a {
 
 .viewer-next {
   right: 20px;
+}
+
+.viewer-image-wrap {
+  position: relative;
+  display: inline-block;
+}
+
+.viewer-image-wrap img {
+  display: block;
+  max-width: 100%;
+  max-height: 70vh;
 }
 
 
