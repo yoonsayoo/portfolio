@@ -12,7 +12,7 @@ const siteStructure = {
       title: "정물",
       items: [
         { key: "house", label: "집" },
-        { key: "objects", label: "사물" }
+        { key: "objects", label: "작은 사물들" }
       ]
     },
     {
