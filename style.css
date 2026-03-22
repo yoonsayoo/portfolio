@@ -359,6 +359,9 @@ a {
   .works-grid {
     grid-template-columns: repeat(3, 1fr);
   }
+   .exhibitions-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
 }
 
 @media (max-width: 900px) {
@@ -385,6 +388,9 @@ a {
 
 @media (max-width: 640px) {
   .works-grid {
+    grid-template-columns: 1fr;
+  }
+   .exhibitions-grid {
     grid-template-columns: 1fr;
   }
 }
