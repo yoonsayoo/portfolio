@@ -104,9 +104,9 @@ function updateGrid(series, label, activeButton) {
 
   const activeGroup = activeButton ? activeButton.closest(".menu-group") : null;
 
-  document.querySelectorAll(".menu-group").forEach((group) => {
-    group.classList.toggle("is-open", group === activeGroup);
-  });
+  if (activeGroup) {
+    activeGroup.classList.add("is-open");
+  }
 }
 
 function openViewer(index) {
@@ -196,15 +196,7 @@ function renderSidebar() {
     });
 
     subtitle.addEventListener("click", () => {
-      const isOpen = group.classList.contains("is-open");
-
-      document.querySelectorAll(".menu-group").forEach((otherGroup) => {
-        otherGroup.classList.remove("is-open");
-      });
-
-      if (!isOpen) {
-        group.classList.add("is-open");
-      }
+      group.classList.toggle("is-open");
     });
 
     group.appendChild(subtitle);
