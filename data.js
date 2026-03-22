@@ -69,3 +69,43 @@ const artworks = [
     image: "/images/old-dandelion.jpg"
   }
 ];
+
+const exhibitions = [
+  {
+    slug: "far-home-alone",
+    title: "혼자 가는 먼 집",
+    year: "2026",
+    venue: "OO Gallery, Seoul",
+    thumbnail: "/images/exhibitions/far-home-alone-thumb.jpg",
+    cover: "/images/exhibitions/far-home-alone-cover.jpg",
+    text: "전시 소개 문장을 여기에 넣습니다.",
+    images: [
+      "/images/exhibitions/far-home-alone-1.jpg",
+      "/images/exhibitions/far-home-alone-2.jpg"
+    ]
+  },
+  {
+    slug: "flowerpot-and-roots",
+    title: "화분과 뿌리",
+    year: "2025",
+    venue: "OO Space, Seoul",
+    thumbnail: "/images/exhibitions/flowerpot-and-roots-thumb.jpg",
+    cover: "/images/exhibitions/flowerpot-and-roots-cover.jpg",
+    text: "전시 소개 문장을 여기에 넣습니다.",
+    images: [
+      "/images/exhibitions/flowerpot-and-roots-1.jpg"
+    ]
+  },
+  {
+    slug: "pencil-marks",
+    title: "지워지지 않는 연필 자국",
+    year: "2024",
+    venue: "OO Project, Seoul",
+    thumbnail: "/images/exhibitions/pencil-marks-thumb.jpg",
+    cover: "/images/exhibitions/pencil-marks-cover.jpg",
+    text: "전시 소개 문장을 여기에 넣습니다.",
+    images: [
+      "/images/exhibitions/pencil-marks-1.jpg"
+    ]
+  }
+];
