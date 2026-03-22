@@ -38,7 +38,25 @@
     </div>
 
     <!-- PAGES -->
-    <div id="exhibitionsView" class="view">Exhibitions</div>
+    <div id="exhibitionsView" class="view text-view">
+      <h2 class="page-heading">Exhibitions</h2>
+      <div id="exhibitionsGrid" class="exhibitions-grid"></div>
+    </div>
+
+    <div id="exhibitionDetailView" class="view text-view">
+      <button id="exhibitionBackButton" class="back-button" type="button">Back</button>
+
+      <div class="exhibition-detail-head">
+        <h2 id="exhibitionDetailTitle" class="page-heading"></h2>
+        <p id="exhibitionDetailMeta" class="exhibition-meta"></p>
+      </div>
+
+      <img id="exhibitionDetailCover" class="exhibition-detail-cover" alt="" />
+
+      <p id="exhibitionDetailText" class="exhibition-detail-text"></p>
+
+      <div id="exhibitionDetailImages" class="exhibition-detail-images"></div>
+    </div>
     <div id="textsView" class="view">Texts</div>
     <div id="cvView" class="view">CV</div>
     <div id="contactView" class="view text-view">
