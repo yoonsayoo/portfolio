@@ -4,320 +4,78 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Yoon Sa-yoo</title>
-  <style>
-    * {
-      box-sizing: border-box;
-    }
 
-    html, body {
-      margin: 0;
-      padding: 0;
-      background: #ffffff;
-      color: #111111;
-      font-family: Arial, sans-serif;
-      font-size: 14px;
-      line-height: 1.5;
-    }
-
-    img {
-      display: block;
-      max-width: 100%;
-    }
-
-    button {
-      font: inherit;
-    }
-
-    .sidebar {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 240px;
-      height: 100vh;
-      padding: 20px;
-      background: #ffffff;
-      overflow-y: auto;
-    }
-
-    .logo-button {
-      border: 0;
-      background: transparent;
-      padding: 0;
-      margin-bottom: 28px;
-      cursor: pointer;
-      font-size: 18px;
-      font-weight: 500;
-      color: #111111;
-      text-align: left;
-    }
-
-    .menu {
-      display: flex;
-      flex-direction: column;
-      gap: 8px;
-      color: #555555;
-      font-size: 14px;
-    }
-
-    .menu-title {
-      color: #111111;
-      font-weight: 500;
-      margin-bottom: 4px;
-    }
-
-    .menu-subtitle {
-      padding-left: 10px;
-      color: #111111;
-    }
-
-    .menu-button {
-      display: block;
-      border: 0;
-      background: transparent;
-      padding: 0 0 0 10px;
-      margin: 0;
-      color: #555555;
-      font: inherit;
-      text-align: left;
-      cursor: pointer;
-    }
-
-    .menu-button.is-active,
-    .menu-button:hover {
-      color: #111111;
-    }
-
-    .content {
-      margin-left: 240px;
-      padding: 40px 24px;
-      min-height: 100vh;
-    }
-
-    .view {
-      display: none;
-    }
-
-    .view.is-active {
-      display: block;
-    }
-
-    .hero-image {
-      display: block;
-      width: 100%;
-      max-width: 900px;
-      height: auto;
-    }
-
-    .works-title {
-      margin: 0 0 16px 0;
-      font-size: 14px;
-      font-weight: 500;
-    }
-
-    .works-grid {
-      display: grid;
-      grid-template-columns: repeat(4, minmax(0, 1fr));
-      gap: 16px;
-      align-items: start;
-    }
-
-    .thumb {
-      display: block;
-      width: 100%;
-      border: 0;
-      background: transparent;
-      padding: 0;
-      margin: 0;
-      cursor: pointer;
-      text-align: left;
-    }
-
-    .thumb img {
-      display: block;
-      width: 100%;
-      height: auto;
-    }
-
-    .thumb-caption {
-      margin-top: 6px;
-      font-size: 12px;
-      color: #555555;
-    }
-
-    @media (max-width: 1200px) {
-      .works-grid {
-        grid-template-columns: repeat(3, minmax(0, 1fr));
-      }
-    }
-
-    @media (max-width: 900px) {
-      .sidebar {
-        position: static;
-        width: 100%;
-        height: auto;
-      }
-
-      .content {
-        margin-left: 0;
-        padding: 20px 18px 18px;
-      }
-
-      .works-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-      }
-    }
-
-    @media (max-width: 640px) {
-      .works-grid {
-        grid-template-columns: 1fr;
-      }
-    }
-  </style>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
+
   <aside class="sidebar">
-    <button id="homeButton" class="logo-button" type="button">Yoon Sa-yoo</button>
+    <button id="homeButton" class="logo-button">Yoon Sa-yoo</button>
 
     <div class="menu">
       <div class="menu-title">Works</div>
 
       <div class="menu-subtitle">Human</div>
-      <button class="menu-button" id="peopleBtn" type="button">People</button>
-      <button class="menu-button" id="selfPortraitsBtn" type="button">Self-Portraits</button>
-
-      <div class="menu-subtitle">Narrative</div>
-      <button class="menu-button" type="button">Roots</button>
-      <button class="menu-button" type="button">Black Room</button>
-
-      <div class="menu-subtitle">Still Life</div>
-      <button class="menu-button" type="button">House</button>
-      <button class="menu-button" type="button">Objects</button>
-
-      <div class="menu-subtitle">Nature</div>
-
-      <div class="menu-subtitle">Projects</div>
-      <button class="menu-button" type="button">Laos National Institute of Fine Arts</button>
-      <button class="menu-button" type="button">Room 202</button>
-      <button class="menu-button" type="button">Under the Letter</button>
+      <button class="series-button" data-series="people">People</button>
+      <button class="series-button" data-series="self-portraits">Self-Portraits</button>
 
       <div class="menu-title" style="margin-top:20px;">Exhibitions</div>
+      <button class="page-button" data-page="exhibitions">Exhibitions</button>
+
       <div class="menu-title">Texts</div>
+      <button class="page-button" data-page="texts">Texts</button>
+
       <div class="menu-title">CV</div>
+      <button class="page-button" data-page="cv">CV</button>
+
       <div class="menu-title">Contact</div>
+      <button class="page-button" data-page="contact">Contact</button>
     </div>
   </aside>
 
   <main class="content">
+
+    <!-- HOME -->
     <div id="homeView" class="view is-active">
-      <img
-        src="https://yoonsayoo.com/images/the-one-in-white.jpg"
-        alt="Main artwork"
-        class="hero-image"
-      />
+      <div class="hero-image-wrap">
+        <img src="/images/the-one-in-white.jpg" class="hero-image" />
+      </div>
     </div>
 
+    <!-- WORKS -->
     <div id="worksView" class="view">
-      <h2 id="worksTitle" class="works-title">People</h2>
+      <div class="view-head">
+        <h2 id="worksCurrent"></h2>
+      </div>
       <div id="worksGrid" class="works-grid"></div>
     </div>
+
+    <!-- OTHER PAGES -->
+    <div id="exhibitionsView" class="view">Exhibitions</div>
+    <div id="textsView" class="view">Texts</div>
+    <div id="cvView" class="view">CV</div>
+    <div id="contactView" class="view">Contact</div>
+
   </main>
 
-  <script>
-    const homeButton = document.getElementById("homeButton");
-    const peopleBtn = document.getElementById("peopleBtn");
-    const selfPortraitsBtn = document.getElementById("selfPortraitsBtn");
+  <!-- VIEWER -->
+  <div id="viewer" class="viewer" aria-hidden="true">
+    <button id="viewerClose" class="viewer-close">&times;</button>
+    <button id="viewerPrev" class="viewer-nav viewer-prev">&#8249;</button>
+    <button id="viewerNext" class="viewer-nav viewer-next">&#8250;</button>
 
-    const homeView = document.getElementById("homeView");
-    const worksView = document.getElementById("worksView");
-    const worksTitle = document.getElementById("worksTitle");
-    const worksGrid = document.getElementById("worksGrid");
-
-    const artworks = {
-      people: [
-        {
-          title: "The One in White",
-          image: "https://yoonsayoo.com/images/the-one-in-white.jpg"
-        },
-        {
-          title: "Stone Figure",
-          image: "https://yoonsayoo.com/images/stone-figure.jpg"
-        }
-      ],
-      "self-portraits": [
-        {
-          title: "An Old Dandelion",
-          image: "https://yoonsayoo.com/images/old-dandelion.jpg"
-        }
-      ]
-    };
-
-    function setActiveButton(activeButton) {
-      [peopleBtn, selfPortraitsBtn].forEach((button) => {
-        button.classList.remove("is-active");
-      });
-
-      if (activeButton) {
-        activeButton.classList.add("is-active");
-      }
-    }
-
-    function showHome() {
-      homeView.classList.add("is-active");
-      worksView.classList.remove("is-active");
-      setActiveButton(null);
-    }
-
-    function renderSeries(seriesKey, label, activeButton) {
-      const items = artworks[seriesKey] || [];
-
-      worksTitle.textContent = label;
-      worksGrid.innerHTML = "";
-
-      items.forEach((item) => {
-        const button = document.createElement("button");
-        button.className = "thumb";
-        button.type = "button";
-        button.innerHTML = `
-          <img src="${item.image}" alt="${item.title}">
-          <div class="thumb-caption">${item.title}</div>
-        `;
-        worksGrid.appendChild(button);
-      });
-
-      homeView.classList.remove("is-active");
-      worksView.classList.add("is-active");
-      setActiveButton(activeButton);
-    }
-
-    homeButton.addEventListener("click", showHome);
-
-    peopleBtn.addEventListener("click", () => {
-      renderSeries("people", "People", peopleBtn);
-    });
-
-    selfPortraitsBtn.addEventListener("click", () => {
-      renderSeries("self-portraits", "Self-Portraits", selfPortraitsBtn);
-    });
-  </script>
-  <!-- FULLSCREEN VIEWER -->
-<div id="viewer" class="viewer" aria-hidden="true">
-  <button id="viewerClose" class="viewer-close">&times;</button>
-
-  <button id="viewerPrev" class="viewer-nav viewer-prev">&#8249;</button>
-  <button id="viewerNext" class="viewer-nav viewer-next">&#8250;</button>
-
-  <div class="viewer-stage">
-    <img id="viewerImage" src="" alt="" />
-
-    <div class="viewer-meta">
-      <div id="viewerTitle" class="viewer-title"></div>
-      <div id="viewerYear" class="viewer-line"></div>
-      <div id="viewerMaterial" class="viewer-line"></div>
-      <div id="viewerSize" class="viewer-line"></div>
+    <div class="viewer-stage">
+      <img id="viewerImage" />
+      <div class="viewer-meta">
+        <div id="viewerTitle" class="viewer-title"></div>
+        <div id="viewerYear" class="viewer-line"></div>
+        <div id="viewerMaterial" class="viewer-line"></div>
+        <div id="viewerSize" class="viewer-line"></div>
+      </div>
     </div>
   </div>
-</div>
+
   <script src="data.js"></script>
-<script src="script.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>
