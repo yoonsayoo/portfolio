@@ -115,9 +115,9 @@ a {
 .hero-image {
   width: auto;
   height: auto;
-  max-width: min(70vw, 900px);
-  max-height: 75vh;
-  margin: 0 auto;
+  max-width: min(62vw, 820px);
+  max-height: 68vh;
+  margin: 40px auto;
 }
 
 /* ✅ TODO:
@@ -137,7 +137,8 @@ a {
 .works-grid {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 16px;
+  gap: 22px;
+  margin-top: 20px;
 }
 
 .thumb {
