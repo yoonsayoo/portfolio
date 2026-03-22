@@ -1,3 +1,6 @@
+/* =========================
+   1. RESET / BASE
+========================= */
 * {
   box-sizing: border-box;
 }
@@ -20,6 +23,9 @@ img {
 
 button {
   font: inherit;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
 }
 
 a {
@@ -27,12 +33,10 @@ a {
   text-decoration: none;
 }
 
-.site-shell {
-  display: grid;
-  grid-template-columns: 240px 1fr;
-  min-height: 100vh;
-}
 
+/* =========================
+   2. LAYOUT
+========================= */
 .sidebar {
   position: fixed;
   inset: 0 auto 0 0;
@@ -43,77 +47,59 @@ a {
   background: #ffffff;
 }
 
+.content {
+  margin-left: 240px;
+  min-height: 100vh;
+  padding: 40px 24px;
+}
+
+
+/* =========================
+   3. SIDEBAR
+========================= */
 .logo-button {
-  border: 0;
-  background: transparent;
-  padding: 0;
-  margin: 0 0 28px;
-  cursor: pointer;
+  margin-bottom: 28px;
   font-size: 18px;
   font-weight: 500;
-  color: #111111;
   text-align: left;
 }
 
-.sidebar-nav {
-  display: flex;
-  flex-direction: column;
-  gap: 18px;
-}
-
-.nav-block {
+.menu {
   display: flex;
   flex-direction: column;
   gap: 8px;
+  font-size: 14px;
+  color: #555555;
 }
 
-.page-title {
-  border: 0;
-  background: transparent;
-  padding: 0;
-  margin: 0;
-  font-size: 14px;
+.menu-title {
   font-weight: 500;
   color: #111111;
-  text-align: left;
-  cursor: pointer;
+  margin-top: 12px;
 }
 
-.nav-section {
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
-}
-
-.nav-section-title {
+.menu-subtitle {
   padding-left: 10px;
   color: #111111;
 }
 
-.series-button,
-.page-button {
-  border: 0;
-  background: transparent;
-  padding: 0 0 0 10px;
-  margin: 0;
+.menu-button {
+  padding-left: 10px;
   text-align: left;
-  cursor: pointer;
   color: #555555;
 }
 
-.series-button:hover,
-.series-button.is-active,
+.menu-button:hover,
+.menu-button.is-active,
 .page-button:hover,
 .page-button.is-active {
   color: #111111;
 }
 
-.content {
-  margin-left: 240px;
-  min-height: 100vh;
-  padding: 24px;
-}
 
+/* =========================
+   4. VIEW SYSTEM
+========================= */
 .view {
   display: none;
 }
@@ -122,27 +108,28 @@ a {
   display: block;
 }
 
-.hero-image-wrap {
-  min-height: calc(100vh - 48px);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
 
+/* =========================
+   5. HOME
+========================= */
 .hero-image {
   width: auto;
   height: auto;
-  max-width: min(72vw, 920px);
-  max-height: 72vh;
+  max-width: min(70vw, 900px);
+  max-height: 75vh;
+  margin: 0 auto;
 }
 
-.view-head {
-  margin-bottom: 18px;
-}
+/* ✅ TODO:
+   더 미니멀하게 하고 싶으면 max-width를 60vw 정도로 줄여도 좋다
+*/
 
-.view-head h2,
-.page-heading {
-  margin: 0;
+
+/* =========================
+   6. WORKS GRID
+========================= */
+.works-title {
+  margin-bottom: 16px;
   font-size: 14px;
   font-weight: 500;
 }
@@ -151,46 +138,27 @@ a {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 16px;
-  align-items: start;
 }
 
 .thumb {
-  appearance: none;
-  border: 0;
-  background: transparent;
-  padding: 0;
-  margin: 0;
-  cursor: pointer;
   text-align: left;
 }
 
 .thumb img {
-  display: block;
   width: 100%;
   height: auto;
   object-fit: contain;
 }
 
-.thumb-caption {
-  margin-top: 6px;
-  font-size: 12px;
-  color: #555555;
-}
+/* ✅ TODO:
+   나중에 hover 효과 추가 가능
+   ex) opacity, scale
+*/
 
-.text-view {
-  max-width: 760px;
-}
 
-.simple-list {
-  margin: 0;
-  padding: 0;
-  list-style: none;
-}
-
-.simple-list li {
-  margin-bottom: 8px;
-}
-
+/* =========================
+   7. VIEWER
+========================= */
 .viewer {
   position: fixed;
   inset: 0;
@@ -207,8 +175,6 @@ a {
 }
 
 .viewer-stage {
-  width: 100%;
-  height: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -216,17 +182,13 @@ a {
 }
 
 .viewer-stage img {
-  width: auto;
-  height: auto;
   max-width: min(92vw, 1400px);
   max-height: 74vh;
 }
 
 .viewer-meta {
-  width: min(92vw, 1400px);
   margin-top: 14px;
   font-size: 13px;
-  color: #111111;
 }
 
 .viewer-title {
@@ -234,30 +196,21 @@ a {
 }
 
 .viewer-line {
-  color: #333333;
-}
-
-.viewer-close,
-.viewer-nav {
-  position: absolute;
-  border: 0;
-  background: transparent;
-  color: #111111;
-  cursor: pointer;
+  color: #333;
 }
 
 .viewer-close {
+  position: absolute;
   top: 14px;
   right: 20px;
   font-size: 36px;
-  line-height: 1;
 }
 
 .viewer-nav {
+  position: absolute;
   top: 50%;
   transform: translateY(-50%);
   font-size: 60px;
-  line-height: 1;
   padding: 8px 14px;
 }
 
@@ -269,17 +222,17 @@ a {
   right: 16px;
 }
 
+
+/* =========================
+   8. RESPONSIVE
+========================= */
 @media (max-width: 1200px) {
   .works-grid {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
+    grid-template-columns: repeat(3, 1fr);
   }
 }
 
 @media (max-width: 900px) {
-  .site-shell {
-    grid-template-columns: 1fr;
-  }
-
   .sidebar {
     position: static;
     width: 100%;
@@ -288,12 +241,7 @@ a {
 
   .content {
     margin-left: 0;
-    padding: 20px 18px 18px;
-  }
-
-  .hero-image-wrap {
-    min-height: auto;
-    justify-content: flex-start;
+    padding: 20px 18px;
   }
 
   .hero-image {
@@ -302,7 +250,7 @@ a {
   }
 
   .works-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-columns: repeat(2, 1fr);
   }
 }
 
@@ -310,41 +258,4 @@ a {
   .works-grid {
     grid-template-columns: 1fr;
   }
-}
-.menu {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-  color: #555555;
-  font-size: 14px;
-}
-
-.menu-title {
-  color: #111111;
-  font-weight: 500;
-  margin-bottom: 4px;
-}
-
-.menu-subtitle {
-  padding-left: 10px;
-  color: #111111;
-}
-
-.menu-button {
-  display: block;
-  border: 0;
-  background: transparent;
-  padding: 0 0 0 10px;
-  margin: 0;
-  color: #555555;
-  font: inherit;
-  text-align: left;
-  cursor: pointer;
-}
-
-.menu-button.is-active,
-.menu-button:hover,
-.page-button.is-active,
-.page-button:hover {
-  color: #111111;
 }
