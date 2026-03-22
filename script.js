@@ -101,6 +101,12 @@ function updateGrid(series, label, activeButton) {
   renderGrid();
   setActiveView("works");
   setActiveSeriesButton(activeButton);
+
+  const activeGroup = activeButton ? activeButton.closest(".menu-group") : null;
+
+  document.querySelectorAll(".menu-group").forEach((group) => {
+    group.classList.toggle("is-open", group === activeGroup);
+  });
 }
 
 function openViewer(index) {
@@ -159,11 +165,21 @@ function renderSidebar() {
   worksTitle.textContent = "Works";
   sidebarNav.appendChild(worksTitle);
 
-  siteStructure.works.forEach((section) => {
-    const subtitle = document.createElement("div");
+  siteStructure.works.forEach((section, sectionIndex) => {
+    const group = document.createElement("div");
+    group.className = "menu-group";
+
+    if (sectionIndex === 0) {
+      group.classList.add("is-open");
+    }
+
+    const subtitle = document.createElement("button");
     subtitle.className = "menu-subtitle";
+    subtitle.type = "button";
     subtitle.textContent = section.title;
-    sidebarNav.appendChild(subtitle);
+
+    const subitems = document.createElement("div");
+    subitems.className = "menu-subitems";
 
     section.items.forEach((item) => {
       const button = document.createElement("button");
@@ -176,8 +192,24 @@ function renderSidebar() {
         updateGrid(item.key, item.label, button);
       });
 
-      sidebarNav.appendChild(button);
+      subitems.appendChild(button);
     });
+
+    subtitle.addEventListener("click", () => {
+      const isOpen = group.classList.contains("is-open");
+
+      document.querySelectorAll(".menu-group").forEach((otherGroup) => {
+        otherGroup.classList.remove("is-open");
+      });
+
+      if (!isOpen) {
+        group.classList.add("is-open");
+      }
+    });
+
+    group.appendChild(subtitle);
+    group.appendChild(subitems);
+    sidebarNav.appendChild(group);
   });
 
   siteStructure.pages.forEach((page) => {
@@ -198,9 +230,11 @@ function renderSidebar() {
 if (homeButton) {
   homeButton.addEventListener("click", () => {
     setActiveView("home");
+
     document.querySelectorAll(".page-button").forEach((button) => {
       button.classList.remove("is-active");
     });
+
     document.querySelectorAll(".menu-button[data-series]").forEach((button) => {
       button.classList.remove("is-active");
     });
@@ -226,4 +260,3 @@ document.addEventListener("keydown", (event) => {
 });
 
 renderSidebar();
-homeView.classList.add("is-active");
