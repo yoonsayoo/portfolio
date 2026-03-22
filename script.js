@@ -1,6 +1,5 @@
-const seriesButtons = Array.from(document.querySelectorAll(".series-button"));
-const pageButtons = Array.from(document.querySelectorAll(".page-button"));
 const homeButton = document.getElementById("homeButton");
+const sidebarNav = document.getElementById("sidebarNav");
 
 const homeView = document.getElementById("homeView");
 const worksView = document.getElementById("worksView");
@@ -11,7 +10,6 @@ const contactView = document.getElementById("contactView");
 
 const worksCurrent = document.getElementById("worksCurrent");
 const worksGrid = document.getElementById("worksGrid");
-const exhibitionsList = document.getElementById("exhibitionsList");
 
 const viewer = document.getElementById("viewer");
 const viewerImage = document.getElementById("viewerImage");
@@ -45,35 +43,43 @@ function setActiveView(viewName) {
     views[viewName].classList.add("is-active");
   }
 
-  pageButtons.forEach((button) => {
+  document.querySelectorAll(".page-button").forEach((button) => {
     button.classList.toggle("is-active", button.dataset.page === viewName);
   });
 
   if (viewName !== "works") {
-    seriesButtons.forEach((button) => button.classList.remove("is-active"));
+    document.querySelectorAll(".menu-button[data-series]").forEach((button) => {
+      button.classList.remove("is-active");
+    });
   }
 }
 
-function getVisibleItems(series) {
+function setActiveSeriesButton(activeButton) {
+  document.querySelectorAll(".menu-button[data-series]").forEach((button) => {
+    button.classList.remove("is-active");
+  });
+
+  if (activeButton) {
+    activeButton.classList.add("is-active");
+  }
+}
+
+function getVisibleItems() {
   if (!Array.isArray(artworks)) return [];
-  return artworks.filter((item) => item.series === series);
+  return artworks.filter((item) => item.series === currentSeries);
 }
 
 function renderGrid() {
-  worksGrid.innerHTML = "";
+  if (!worksGrid) return;
 
-  if (!visibleItems.length) {
-    worksGrid.innerHTML = `<div class="muted">아직 등록된 작품이 없습니다.</div>`;
-    return;
-  }
+  worksGrid.innerHTML = "";
 
   visibleItems.forEach((item, index) => {
     const button = document.createElement("button");
     button.className = "thumb";
     button.type = "button";
     button.innerHTML = `
-      <img src="${item.image}" alt="${item.titleEn || item.title || ""}" loading="lazy" />
-      <div class="thumb-caption">${item.titleEn || item.title || ""}</div>
+      <img src="${item.image}" alt="${item.titleEn || item.title || ""}" />
     `;
 
     button.addEventListener("click", () => {
@@ -84,63 +90,51 @@ function renderGrid() {
   });
 }
 
-function updateGrid(series) {
+function updateGrid(series, label, activeButton) {
   currentSeries = series;
-  visibleItems = getVisibleItems(series);
-
-  seriesButtons.forEach((button) => {
-    button.classList.toggle("is-active", button.dataset.series === series);
-  });
-
-  pageButtons.forEach((button) => {
-    button.classList.remove("is-active");
-  });
+  visibleItems = getVisibleItems();
 
   if (worksCurrent) {
-    worksCurrent.textContent = seriesMeta[series]?.label || series;
+    worksCurrent.textContent = label;
   }
 
   renderGrid();
   setActiveView("works");
-}
-
-function renderExhibitions() {
-  if (!exhibitionsList) return;
-
-  exhibitionsList.innerHTML = "";
-
-  exhibitions.forEach((item) => {
-    const li = document.createElement("li");
-    li.textContent = item.title;
-    exhibitionsList.appendChild(li);
-  });
+  setActiveSeriesButton(activeButton);
 }
 
 function openViewer(index) {
   currentIndex = index;
   updateViewer();
 
-  viewer.classList.add("is-open");
-  viewer.setAttribute("aria-hidden", "false");
-  document.body.style.overflow = "hidden";
+  if (viewer) {
+    viewer.classList.add("is-open");
+    viewer.setAttribute("aria-hidden", "false");
+    document.body.style.overflow = "hidden";
+  }
 }
 
 function closeViewer() {
-  viewer.classList.remove("is-open");
-  viewer.setAttribute("aria-hidden", "true");
-  document.body.style.overflow = "";
+  if (viewer) {
+    viewer.classList.remove("is-open");
+    viewer.setAttribute("aria-hidden", "true");
+    document.body.style.overflow = "";
+  }
 }
 
 function updateViewer() {
   const item = visibleItems[currentIndex];
   if (!item) return;
 
-  viewerImage.src = item.image;
-  viewerImage.alt = item.titleEn || item.title || "";
-  viewerTitle.textContent = item.titleEn || item.title || "";
-  viewerYear.textContent = item.year || "";
-  viewerMaterial.textContent = item.material || "";
-  viewerSize.textContent = item.size || "";
+  if (viewerImage) {
+    viewerImage.src = item.image;
+    viewerImage.alt = item.titleEn || item.title || "";
+  }
+
+  if (viewerTitle) viewerTitle.textContent = item.titleEn || item.title || "";
+  if (viewerYear) viewerYear.textContent = item.year || "";
+  if (viewerMaterial) viewerMaterial.textContent = item.material || "";
+  if (viewerSize) viewerSize.textContent = item.size || "";
 }
 
 function showNext() {
@@ -155,43 +149,81 @@ function showPrev() {
   updateViewer();
 }
 
-seriesButtons.forEach((button) => {
-  button.addEventListener("click", () => {
-    updateGrid(button.dataset.series);
+function renderSidebar() {
+  if (!sidebarNav) return;
+
+  sidebarNav.innerHTML = "";
+
+  const worksTitle = document.createElement("div");
+  worksTitle.className = "menu-title";
+  worksTitle.textContent = "Works";
+  sidebarNav.appendChild(worksTitle);
+
+  siteStructure.works.forEach((section) => {
+    const subtitle = document.createElement("div");
+    subtitle.className = "menu-subtitle";
+    subtitle.textContent = section.title;
+    sidebarNav.appendChild(subtitle);
+
+    section.items.forEach((item) => {
+      const button = document.createElement("button");
+      button.className = "menu-button";
+      button.type = "button";
+      button.dataset.series = item.key;
+      button.textContent = item.label;
+
+      button.addEventListener("click", () => {
+        updateGrid(item.key, item.label, button);
+      });
+
+      sidebarNav.appendChild(button);
+    });
   });
-});
 
-pageButtons.forEach((button) => {
-  button.addEventListener("click", () => {
-    const page = button.dataset.page;
-    setActiveView(page);
+  siteStructure.pages.forEach((page) => {
+    const button = document.createElement("button");
+    button.className = "menu-title page-button";
+    button.type = "button";
+    button.dataset.page = page.key;
+    button.textContent = page.label;
 
-    if (page === "exhibitions") {
-      renderExhibitions();
-    }
+    button.addEventListener("click", () => {
+      setActiveView(page.key);
+    });
+
+    sidebarNav.appendChild(button);
   });
-});
+}
 
-homeButton.addEventListener("click", () => {
-  setActiveView("home");
-  pageButtons.forEach((button) => button.classList.remove("is-active"));
-  seriesButtons.forEach((button) => button.classList.remove("is-active"));
-});
+if (homeButton) {
+  homeButton.addEventListener("click", () => {
+    setActiveView("home");
+    document.querySelectorAll(".page-button").forEach((button) => {
+      button.classList.remove("is-active");
+    });
+    document.querySelectorAll(".menu-button[data-series]").forEach((button) => {
+      button.classList.remove("is-active");
+    });
+  });
+}
 
-viewerClose.addEventListener("click", closeViewer);
-viewerNext.addEventListener("click", showNext);
-viewerPrev.addEventListener("click", showPrev);
+if (viewerClose) viewerClose.addEventListener("click", closeViewer);
+if (viewerNext) viewerNext.addEventListener("click", showNext);
+if (viewerPrev) viewerPrev.addEventListener("click", showPrev);
 
-viewer.addEventListener("click", (event) => {
-  if (event.target === viewer) closeViewer();
-});
+if (viewer) {
+  viewer.addEventListener("click", (event) => {
+    if (event.target === viewer) closeViewer();
+  });
+}
 
 document.addEventListener("keydown", (event) => {
-  if (!viewer.classList.contains("is-open")) return;
+  if (!viewer || !viewer.classList.contains("is-open")) return;
 
   if (event.key === "Escape") closeViewer();
   if (event.key === "ArrowRight") showNext();
   if (event.key === "ArrowLeft") showPrev();
 });
 
-renderExhibitions();
+renderSidebar();
+homeView.classList.add("is-active");
