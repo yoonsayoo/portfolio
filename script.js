@@ -83,6 +83,7 @@ function renderGrid() {
     `;
 
     button.addEventListener("click", () => {
+      console.log("clicked", index);
       openViewer(index);
     });
 
