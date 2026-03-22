@@ -48,14 +48,14 @@ function setActiveView(viewName) {
   });
 
   if (viewName !== "works") {
-    document.querySelectorAll(".menu-button[data-series]").forEach((button) => {
+    document.querySelectorAll("[data-series]").forEach((button) => {
       button.classList.remove("is-active");
     });
   }
 }
 
 function setActiveSeriesButton(activeButton) {
-  document.querySelectorAll(".menu-button[data-series]").forEach((button) => {
+  document.querySelectorAll("[data-series]").forEach((button) => {
     button.classList.remove("is-active");
   });
 
@@ -166,6 +166,23 @@ function renderSidebar() {
   sidebarNav.appendChild(worksTitle);
 
   siteStructure.works.forEach((section, sectionIndex) => {
+    // 소분류 없는 경우: 중분류 자체가 버튼
+    if (!section.items || !section.items.length) {
+      const directButton = document.createElement("button");
+      directButton.className = "menu-subtitle menu-subtitle-direct";
+      directButton.type = "button";
+      directButton.dataset.series = section.key;
+      directButton.textContent = section.title;
+
+      directButton.addEventListener("click", () => {
+        updateGrid(section.key, section.label || section.title, directButton);
+      });
+
+      sidebarNav.appendChild(directButton);
+      return;
+    }
+
+    // 소분류 있는 경우
     const group = document.createElement("div");
     group.className = "menu-group";
 
@@ -227,7 +244,7 @@ if (homeButton) {
       button.classList.remove("is-active");
     });
 
-    document.querySelectorAll(".menu-button[data-series]").forEach((button) => {
+    document.querySelectorAll("[data-series]").forEach((button) => {
       button.classList.remove("is-active");
     });
   });
