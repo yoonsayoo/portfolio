@@ -156,7 +156,9 @@ const artworks = [
   //   size: "100 × 80 cm",
   //   image: "/images/room-202-1.jpg"
   // },
+  
 
+];
 
 const exhibitions = [
   {
