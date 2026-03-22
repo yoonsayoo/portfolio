@@ -458,7 +458,7 @@ a {
    .viewer-row {
   flex-direction: column;
   align-items: center;
-  gap: 14px;
+  gap: 32px;
 }
 
 .viewer-row img {
@@ -467,8 +467,9 @@ a {
 }
 
 .viewer-meta {
-  width: 100%;
-  text-align: right;
+  width: 180px;
+  line-height: 1.5;
+  text-align: left;
 }
 }
 
