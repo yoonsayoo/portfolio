@@ -300,6 +300,14 @@ a {
   right: 16px;
 }
 
+.text-view {
+  max-width: 600px;
+}
+
+.text-view a {
+  color: #111111;
+}
+
 
 /* =========================
    8. RESPONSIVE
