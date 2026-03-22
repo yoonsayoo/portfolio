@@ -258,9 +258,6 @@ function renderSidebar() {
     const group = document.createElement("div");
     group.className = "menu-group";
 
-    if (sectionIndex === 0) {
-      group.classList.add("is-open");
-    }
 
     const subtitle = document.createElement("button");
     subtitle.className = "menu-subtitle";
