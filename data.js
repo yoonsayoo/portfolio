@@ -13,7 +13,6 @@ const siteStructure = {
       title: "정물",
       key: "objects",
       label: "작은 사물들"
-      ]
     },
     {
       title: "자연",
