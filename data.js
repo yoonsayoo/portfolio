@@ -5,14 +5,14 @@ const siteStructure = {
       title: "사람",
       items: [
         { key: "people", label: "사람들" },
+        { key: "house", label: "집" },
         { key: "self-portraits", label: "자화상" }
       ]
     },
     {
       title: "정물",
-      items: [
-        { key: "house", label: "집" },
-        { key: "objects", label: "작은 사물들" }
+      key: "objects",
+      label: "작은 사물들"
       ]
     },
     {
@@ -68,6 +68,19 @@ const artworks = [
     image: "/images/stone-figure.jpg"
   },
 
+    /* =========================
+     🏠 인간 → 집
+  ========================= */
+  // {
+  //   series: "house",
+  //   title: "작품명",
+  //   titleEn: "English Title",
+  //   year: "2024",
+  //   material: "Oil on canvas",
+  //   size: "100 × 80 cm",
+  //   image: "/images/house-1.jpg"
+  // },
+
   /* =========================
      🪞 인간 → 자화상
   ========================= */
@@ -82,20 +95,7 @@ const artworks = [
   },
 
   /* =========================
-     🏠 정물 → 집
-  ========================= */
-  // {
-  //   series: "house",
-  //   title: "작품명",
-  //   titleEn: "English Title",
-  //   year: "2024",
-  //   material: "Oil on canvas",
-  //   size: "100 × 80 cm",
-  //   image: "/images/house-1.jpg"
-  // },
-
-  /* =========================
-     📦 정물 → 사물
+     📦 작은 사물들
   ========================= */
   // {
   //   series: "objects",
