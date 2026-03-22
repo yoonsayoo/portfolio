@@ -103,9 +103,7 @@ a {
 }
 
 .menu-subtitle {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+  display: block;
   width: 100%;
   padding: 0 0 0 10px;
   margin: 0;
@@ -113,16 +111,6 @@ a {
   font-size: 13px;
   color: #111111;
   line-height: 1.4;
-}
-
-.menu-subtitle::after {
-  content: "+";
-  font-size: 12px;
-  color: #777777;
-}
-
-.menu-group.is-open .menu-subtitle::after {
-  content: "−"; 
 }
 
 .menu-subitems {
@@ -146,6 +134,22 @@ a {
 
 .menu-button:hover,
 .menu-button.is-active {
+  color: #111111;
+}
+
+.menu-subtitle-direct {
+  display: block;
+  width: 100%;
+  padding: 0 0 0 10px;
+  margin: 0;
+  text-align: left;
+  font-size: 13px;
+  color: #111111;
+  line-height: 1.4;
+}
+
+.menu-subtitle-direct:hover,
+.menu-subtitle-direct.is-active {
   color: #111111;
 }
 
