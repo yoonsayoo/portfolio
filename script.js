@@ -5,8 +5,12 @@ const homeView = document.getElementById("homeView");
 const worksView = document.getElementById("worksView");
 const exhibitionsView = document.getElementById("exhibitionsView");
 const textsView = document.getElementById("textsView");
-
+const cvView = document.getElementById("cvView");
+const contactView = document.getElementById("contactView");
 const exhibitionDetailView = document.getElementById("exhibitionDetailView");
+
+const worksCurrent = document.getElementById("worksCurrent");
+const worksGrid = document.getElementById("worksGrid");
 
 const exhibitionsGrid = document.getElementById("exhibitionsGrid");
 const exhibitionBackButton = document.getElementById("exhibitionBackButton");
@@ -15,12 +19,6 @@ const exhibitionDetailMeta = document.getElementById("exhibitionDetailMeta");
 const exhibitionDetailCover = document.getElementById("exhibitionDetailCover");
 const exhibitionDetailText = document.getElementById("exhibitionDetailText");
 const exhibitionDetailImages = document.getElementById("exhibitionDetailImages");
-
-const cvView = document.getElementById("cvView");
-const contactView = document.getElementById("contactView");
-
-const worksCurrent = document.getElementById("worksCurrent");
-const worksGrid = document.getElementById("worksGrid");
 
 const viewer = document.getElementById("viewer");
 const viewerImage = document.getElementById("viewerImage");
@@ -31,6 +29,9 @@ const viewerSize = document.getElementById("viewerSize");
 const viewerClose = document.getElementById("viewerClose");
 const viewerPrev = document.getElementById("viewerPrev");
 const viewerNext = document.getElementById("viewerNext");
+
+const emailButton = document.querySelector(".email-copy");
+const feedback = document.getElementById("copyFeedback");
 
 const views = {
   home: homeView,
@@ -84,68 +85,6 @@ function getVisibleItems() {
 function renderGrid() {
   if (!worksGrid) return;
 
-
-function renderExhibitionsGrid() {
-  if (!exhibitionsGrid) return;
-
-  exhibitionsGrid.innerHTML = "";
-
-  exhibitions.forEach((item) => {
-    const button = document.createElement("button");
-    button.className = "exhibition-card";
-    button.type = "button";
-
-    button.innerHTML = `
-      <img src="${item.thumbnail}" alt="${item.title}" />
-      <div class="exhibition-card-title">${item.title}</div>
-      <div class="exhibition-card-meta">${item.year} · ${item.venue}</div>
-    `;
-
-    button.addEventListener("click", () => {
-      openExhibitionDetail(item.slug);
-    });
-
-    exhibitionsGrid.appendChild(button);
-  });
-}
-
-
-function openExhibitionDetail(slug) {
-  const item = exhibitions.find((exhibition) => exhibition.slug === slug);
-  if (!item) return;
-
-  if (exhibitionDetailTitle) {
-    exhibitionDetailTitle.textContent = item.title;
-  }
-
-  if (exhibitionDetailMeta) {
-    exhibitionDetailMeta.textContent = `${item.year} · ${item.venue}`;
-  }
-
-  if (exhibitionDetailCover) {
-    exhibitionDetailCover.src = item.cover;
-    exhibitionDetailCover.alt = item.title;
-  }
-
-  if (exhibitionDetailText) {
-    exhibitionDetailText.textContent = item.text || "";
-  }
-
-  if (exhibitionDetailImages) {
-    exhibitionDetailImages.innerHTML = "";
-
-    (item.images || []).forEach((src) => {
-      const img = document.createElement("img");
-      img.src = src;
-      img.alt = item.title;
-      exhibitionDetailImages.appendChild(img);
-    });
-  }
-
-  setActiveView("exhibitionDetail");
-}
-  
-
   worksGrid.innerHTML = "";
 
   visibleItems.forEach((item, index) => {
@@ -181,6 +120,67 @@ function updateGrid(series, label, activeButton) {
   if (activeGroup) {
     activeGroup.classList.add("is-open");
   }
+}
+
+function renderExhibitionsGrid() {
+  if (!exhibitionsGrid || !Array.isArray(exhibitions)) return;
+
+  exhibitionsGrid.innerHTML = "";
+
+  exhibitions.forEach((item) => {
+    const button = document.createElement("button");
+    button.className = "exhibition-card";
+    button.type = "button";
+
+    button.innerHTML = `
+      <img src="${item.thumbnail}" alt="${item.title}" />
+      <div class="exhibition-card-title">${item.title}</div>
+      <div class="exhibition-card-meta">${item.year} · ${item.venue}</div>
+    `;
+
+    button.addEventListener("click", () => {
+      openExhibitionDetail(item.slug);
+    });
+
+    exhibitionsGrid.appendChild(button);
+  });
+}
+
+function openExhibitionDetail(slug) {
+  if (!Array.isArray(exhibitions)) return;
+
+  const item = exhibitions.find((exhibition) => exhibition.slug === slug);
+  if (!item) return;
+
+  if (exhibitionDetailTitle) {
+    exhibitionDetailTitle.textContent = item.title;
+  }
+
+  if (exhibitionDetailMeta) {
+    exhibitionDetailMeta.textContent = `${item.year} · ${item.venue}`;
+  }
+
+  if (exhibitionDetailCover) {
+    exhibitionDetailCover.src = item.cover;
+    exhibitionDetailCover.alt = item.title;
+  }
+
+  if (exhibitionDetailText) {
+    exhibitionDetailText.textContent = item.text || "";
+  }
+
+  if (exhibitionDetailImages) {
+    exhibitionDetailImages.innerHTML = "";
+
+    (item.images || []).forEach((src) => {
+      const img = document.createElement("img");
+      img.src = src;
+      img.alt = item.title;
+      exhibitionDetailImages.appendChild(img);
+    });
+  }
+
+  setActiveView("exhibitionDetail");
 }
 
 function openViewer(index) {
@@ -240,7 +240,6 @@ function renderSidebar() {
   sidebarNav.appendChild(worksTitle);
 
   siteStructure.works.forEach((section, sectionIndex) => {
-    // 소분류 없는 경우: 중분류 자체가 버튼
     if (!section.items || !section.items.length) {
       const directButton = document.createElement("button");
       directButton.className = "menu-subtitle menu-subtitle-direct";
@@ -256,7 +255,6 @@ function renderSidebar() {
       return;
     }
 
-    // 소분류 있는 경우
     const group = document.createElement("div");
     group.className = "menu-group";
 
@@ -352,10 +350,6 @@ if (exhibitionBackButton) {
   });
 }
 
-
-const emailButton = document.querySelector(".email-copy");
-const feedback = document.getElementById("copyFeedback");
-
 if (emailButton) {
   emailButton.addEventListener("click", () => {
     const email = emailButton.dataset.email;
@@ -366,7 +360,9 @@ if (emailButton) {
       }
 
       setTimeout(() => {
-        if (feedback) feedback.textContent = "";
+        if (feedback) {
+          feedback.textContent = "";
+        }
       }, 1500);
     });
   });
