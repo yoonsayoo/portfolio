@@ -23,7 +23,7 @@ const siteStructure = {
     {
       title: "이야기",
       items: [
-        { key: "roots", label: "뿌리" },
+        { key: "roots", label: "나타샤 이야기" },
         { key: "black-room", label: "검은방" },
         { key: "room-202", label: "202호" },
         { key: "under-the-letter", label: "Under the letter" }
