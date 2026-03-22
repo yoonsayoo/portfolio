@@ -9,13 +9,6 @@ const siteStructure = {
       ]
     },
     {
-      title: "이야기",
-      items: [
-        { key: "roots", label: "뿌리" },
-        { key: "black-room", label: "검은방" }
-      ]
-    },
-    {
       title: "정물",
       items: [
         { key: "house", label: "집" },
@@ -26,6 +19,13 @@ const siteStructure = {
       title: "자연",
       items: [
         { key: "nature", label: "자연" }
+      ]
+    },
+    {
+      title: "이야기",
+      items: [
+        { key: "roots", label: "뿌리" },
+        { key: "black-room", label: "검은방" }
       ]
     },
     {
