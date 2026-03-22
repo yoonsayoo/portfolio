@@ -299,5 +299,23 @@
       renderSeries("self-portraits", "Self-Portraits", selfPortraitsBtn);
     });
   </script>
+  <!-- FULLSCREEN VIEWER -->
+<div id="viewer" class="viewer" aria-hidden="true">
+  <button id="viewerClose" class="viewer-close">&times;</button>
+
+  <button id="viewerPrev" class="viewer-nav viewer-prev">&#8249;</button>
+  <button id="viewerNext" class="viewer-nav viewer-next">&#8250;</button>
+
+  <div class="viewer-stage">
+    <img id="viewerImage" src="" alt="" />
+
+    <div class="viewer-meta">
+      <div id="viewerTitle" class="viewer-title"></div>
+      <div id="viewerYear" class="viewer-line"></div>
+      <div id="viewerMaterial" class="viewer-line"></div>
+      <div id="viewerSize" class="viewer-line"></div>
+    </div>
+  </div>
+</div>
 </body>
 </html>
