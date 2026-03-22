@@ -24,7 +24,7 @@ const siteStructure = {
       items: [
         { key: "roots", label: "화분과 뿌리" },
         { key: "black-room", label: "검은 방" },
-        { key: "room-202", label: "202호" },
+        { key: "room-202", label: "202호" }
       ]
     }
   ],
