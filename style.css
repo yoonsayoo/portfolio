@@ -40,6 +40,8 @@ a {
 .sidebar {
   position: fixed;
   inset: 0 auto 0 0;
+  display: flex;
+  flex-direction: column;
   width: 240px;
   height: 100vh;
   padding: 20px 20px 24px;
@@ -93,7 +95,8 @@ a {
   gap: 4px;
 }
 
-.menu-subtitle {
+.menu-subtitle,
+.menu-subtitle-direct {
   display: block;
   width: 100%;
   padding: 0 0 0 10px;
@@ -124,23 +127,11 @@ a {
 }
 
 .menu-button:hover,
-.menu-button.is-active {
-  color: #111111;
-}
-
-.menu-subtitle-direct {
-  display: block;
-  width: 100%;
-  padding: 0 0 0 10px;
-  margin: 0;
-  text-align: left;
-  font-size: 13px;
-  color: #111111;
-  line-height: 1.4;
-}
-
+.menu-button.is-active,
 .menu-subtitle-direct:hover,
-.menu-subtitle-direct.is-active {
+.menu-subtitle-direct.is-active,
+.page-button:hover,
+.page-button.is-active {
   color: #111111;
 }
 
@@ -151,22 +142,13 @@ a {
   color: #111111;
 }
 
-.page-button:hover,
-.page-button.is-active {
-  color: #111111;
-}
-
-.sidebar {
-  display: flex;
-  flex-direction: column;
-}
-
 .sidebar-footer {
   margin-top: auto;
-  font-size: 12px;
+  font-size: 11px;
   color: #bbbbbb;
   letter-spacing: 0.02em;
 }
+
 
 /* =========================
    4. VIEW SYSTEM
@@ -186,19 +168,16 @@ a {
 .hero-image {
   width: 100%;
   max-width: 900px;
+  height: auto;
   margin: 60px auto;
 }
-
-/* ✅ TODO:
-   더 미니멀하게 하고 싶으면 max-width를 60vw 정도로 줄여도 좋다
-*/
 
 
 /* =========================
    6. WORKS GRID
 ========================= */
 .works-title {
-  margin-bottom: 16px;
+  margin: 0 0 16px;
   font-size: 14px;
   font-weight: 500;
 }
@@ -211,6 +190,9 @@ a {
 }
 
 .thumb {
+  display: block;
+  width: 100%;
+  padding: 0;
   text-align: left;
 }
 
@@ -226,11 +208,6 @@ a {
   opacity: 0.85;
 }
 
-/* ✅ TODO:
-   나중에 hover 효과 추가 가능
-   ex) opacity, scale
-*/
-
 
 /* =========================
    7. TEXT VIEW
@@ -240,10 +217,11 @@ a {
   line-height: 1.6;
 }
 
-.text-view h2 {
+.text-view h2,
+.page-heading {
+  margin: 0 0 24px;
   font-size: 14px;
   font-weight: 500;
-  margin: 0 0 24px;
 }
 
 .text-view p {
@@ -255,19 +233,17 @@ a {
 }
 
 .email-copy {
-  border: none;
-  background: none;
   padding: 0;
   font: inherit;
-  color: #111;
-  cursor: pointer;
+  color: #111111;
+  text-align: left;
 }
 
 .copy-feedback {
   display: block;
   margin-top: 6px;
   font-size: 11px;
-  color: #999;
+  color: #999999;
   opacity: 0.7;
 }
 
@@ -284,6 +260,8 @@ a {
 
 .exhibition-card {
   display: block;
+  width: 100%;
+  padding: 0;
   text-align: left;
 }
 
@@ -351,15 +329,94 @@ a {
 
 
 /* =========================
-   8. RESPONSIVE
+   8. VIEWER
+========================= */
+.viewer {
+  position: fixed;
+  inset: 0;
+  z-index: 999;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.98);
+  padding: 24px;
+}
+
+.viewer.is-open {
+  display: flex;
+}
+
+.viewer-stage {
+  width: 100%;
+  max-width: 92vw;
+  max-height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.viewer-stage img {
+  width: auto;
+  max-width: 100%;
+  max-height: 70vh;
+  margin: 0 auto;
+}
+
+.viewer-meta {
+  width: min(92vw, 1400px);
+  margin-top: 20px;
+  font-size: 13px;
+  color: #555555;
+}
+
+.viewer-title {
+  font-weight: 500;
+  color: #111111;
+}
+
+.viewer-line {
+  color: #333333;
+}
+
+.viewer-close {
+  position: absolute;
+  top: 20px;
+  right: 24px;
+  font-size: 24px;
+  line-height: 1;
+  color: #111111;
+}
+
+.viewer-nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 30px;
+  line-height: 1;
+  color: #111111;
+}
+
+.viewer-prev {
+  left: 20px;
+}
+
+.viewer-next {
+  right: 20px;
+}
+
+
+/* =========================
+   9. RESPONSIVE
 ========================= */
 @media (max-width: 1200px) {
   .works-grid {
     grid-template-columns: repeat(3, 1fr);
   }
-   .exhibitions-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
+
+  .exhibitions-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 
 @media (max-width: 900px) {
@@ -374,21 +431,44 @@ a {
     padding: 20px 18px;
   }
 
+  .menu {
+    margin-top: 24px;
+  }
+
   .hero-image {
     max-width: 100%;
-    max-height: none;
+    margin: 30px auto;
   }
 
   .works-grid {
     grid-template-columns: repeat(2, 1fr);
   }
+
+  .viewer-stage img {
+    max-height: 60vh;
+  }
 }
 
 @media (max-width: 640px) {
-  .works-grid {
+  .works-grid,
+  .exhibitions-grid {
     grid-template-columns: 1fr;
   }
-   .exhibitions-grid {
-    grid-template-columns: 1fr;
+
+  .viewer {
+    padding: 18px;
+  }
+
+  .viewer-close {
+    top: 14px;
+    right: 16px;
+  }
+
+  .viewer-prev {
+    left: 12px;
+  }
+
+  .viewer-next {
+    right: 12px;
   }
 }
