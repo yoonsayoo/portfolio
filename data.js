@@ -17,25 +17,18 @@ const siteStructure = {
     },
     {
       title: "자연",
-      items: [
-        { key: "nature", label: "자연" }
-      ]
+      key: "nature",
+      label: "자연"
     },
     {
       title: "이야기",
       items: [
         { key: "roots", label: "뿌리" },
         { key: "black-room", label: "검은방" }
-      ]
-    },
-    {
-      title: "프로젝트",
-      items: [
-        { key: "laos-national-institute-of-fine-arts", label: "라오스 국립미술원" },
         { key: "room-202", label: "202호" },
         { key: "under-the-letter", label: "Under the letter" }
       ]
-    }
+    },
   ],
   pages: [
     { key: "exhibitions", label: "Exhibitions" },
