@@ -57,40 +57,72 @@ a {
 /* =========================
    3. SIDEBAR
 ========================= */
+.sidebar {
+  position: fixed;
+  inset: 0 auto 0 0;
+  width: 240px;
+  height: 100vh;
+  padding: 20px 20px 24px;
+  overflow-y: auto;
+  background: #ffffff;
+}
+
 .logo-button {
-  margin-bottom: 28px;
+  display: inline-block;
+  margin: 0 0 30px;
   font-size: 18px;
   font-weight: 500;
   text-align: left;
+  color: #111111;
 }
 
 .menu {
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 6px;
   font-size: 14px;
   color: #555555;
 }
 
 .menu-title {
+  margin-top: 16px;
+  margin-bottom: 6px;
   font-weight: 500;
   color: #111111;
-  margin-top: 12px;
+  text-align: left;
+}
+
+.menu-title:first-child {
+  margin-top: 0;
 }
 
 .menu-subtitle {
+  margin-top: 4px;
   padding-left: 10px;
+  font-size: 13px;
   color: #111111;
 }
 
 .menu-button {
-  padding-left: 10px;
+  display: block;
+  padding: 0 0 0 24px;
   text-align: left;
-  color: #555555;
+  color: #666666;
+  line-height: 1.45;
 }
 
 .menu-button:hover,
-.menu-button.is-active,
+.menu-button.is-active {
+  color: #111111;
+}
+
+.page-button {
+  display: block;
+  padding: 0;
+  text-align: left;
+  color: #111111;
+}
+
 .page-button:hover,
 .page-button.is-active {
   color: #111111;
