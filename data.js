@@ -2,7 +2,7 @@
 const siteStructure = {
   works: [
     {
-      title: "사람",
+      title: "인간",
       items: [
         { key: "people", label: "사람들" },
         { key: "house", label: "집" },
