@@ -39,8 +39,16 @@ const siteStructure = {
 };
 
 
-// ✅ 작품 데이터 (절대 건드리지 말 것: 핵심 동작 부분)
+// ✅ 작품 데이터
+// 규칙:
+// 1. series 값은 siteStructure의 key와 반드시 똑같아야 함
+// 2. image 경로는 실제 /images 폴더 경로와 맞아야 함
+// 3. 아직 작품이 없는 카테고리는 빈 상태로 두거나 아래 템플릿을 복붙해서 추가
+
 const artworks = [
+  /* =========================
+     👤 인간 → 사람들
+  ========================= */
   {
     series: "people",
     title: "흰옷 입은 사람",
@@ -59,6 +67,10 @@ const artworks = [
     size: "145 × 112 cm",
     image: "/images/stone-figure.jpg"
   },
+
+  /* =========================
+     🪞 인간 → 자화상
+  ========================= */
   {
     series: "self-portraits",
     title: "늙은 민들레",
@@ -67,7 +79,98 @@ const artworks = [
     material: "Oil on canvas",
     size: "116 × 91 cm",
     image: "/images/old-dandelion.jpg"
-  }
+  },
+
+  /* =========================
+     🏠 정물 → 집
+  ========================= */
+  // {
+  //   series: "house",
+  //   title: "작품명",
+  //   titleEn: "English Title",
+  //   year: "2024",
+  //   material: "Oil on canvas",
+  //   size: "100 × 80 cm",
+  //   image: "/images/house-1.jpg"
+  // },
+
+  /* =========================
+     📦 정물 → 사물
+  ========================= */
+  // {
+  //   series: "objects",
+  //   title: "작품명",
+  //   titleEn: "English Title",
+  //   year: "2024",
+  //   material: "Oil on canvas",
+  //   size: "100 × 80 cm",
+  //   image: "/images/object-1.jpg"
+  // },
+
+  /* =========================
+     🌿 자연
+  ========================= */
+  // {
+  //   series: "nature",
+  //   title: "작품명",
+  //   titleEn: "English Title",
+  //   year: "2024",
+  //   material: "Oil on canvas",
+  //   size: "100 × 80 cm",
+  //   image: "/images/nature-1.jpg"
+  // },
+
+  /* =========================
+     📖 이야기 → 나타샤 이야기
+  ========================= */
+  // {
+  //   series: "roots",
+  //   title: "작품명",
+  //   titleEn: "English Title",
+  //   year: "2024",
+  //   material: "Oil on canvas",
+  //   size: "100 × 80 cm",
+  //   image: "/images/roots-1.jpg"
+  // },
+
+  /* =========================
+     🌑 이야기 → 검은방
+  ========================= */
+  // {
+  //   series: "black-room",
+  //   title: "작품명",
+  //   titleEn: "English Title",
+  //   year: "2024",
+  //   material: "Oil on canvas",
+  //   size: "100 × 80 cm",
+  //   image: "/images/black-room-1.jpg"
+  // },
+
+  /* =========================
+     🚪 이야기 → 202호
+  ========================= */
+  // {
+  //   series: "room-202",
+  //   title: "작품명",
+  //   titleEn: "English Title",
+  //   year: "2024",
+  //   material: "Oil on canvas",
+  //   size: "100 × 80 cm",
+  //   image: "/images/room-202-1.jpg"
+  // },
+
+  /* =========================
+     ✉️ 이야기 → Under the letter
+  ========================= */
+  // {
+  //   series: "under-the-letter",
+  //   title: "작품명",
+  //   titleEn: "English Title",
+  //   year: "2024",
+  //   material: "Oil on canvas",
+  //   size: "100 × 80 cm",
+  //   image: "/images/under-the-letter-1.jpg"
+  // }
 ];
 
 const exhibitions = [
