@@ -269,3 +269,22 @@ document.addEventListener("keydown", (event) => {
 });
 
 renderSidebar();
+
+const emailButton = document.querySelector(".email-copy");
+const feedback = document.getElementById("copyFeedback");
+
+if (emailButton) {
+  emailButton.addEventListener("click", () => {
+    const email = emailButton.dataset.email;
+
+    navigator.clipboard.writeText(email).then(() => {
+      if (feedback) {
+        feedback.textContent = "Copied";
+      }
+
+      setTimeout(() => {
+        if (feedback) feedback.textContent = "";
+      }, 1500);
+    });
+  });
+}
