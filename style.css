@@ -147,7 +147,13 @@ a {
 .thumb img {
   width: 100%;
   height: auto;
+  display: block;
   object-fit: contain;
+  transition: opacity 0.2s ease;
+}
+
+.thumb:hover img {
+  opacity: 0.85;
 }
 
 /* ✅ TODO:
