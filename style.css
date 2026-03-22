@@ -184,9 +184,9 @@ a {
 .hero-image {
   width: auto;
   height: auto;
-  max-width: min(62vw, 820px);
-  max-height: 68vh;
-  margin: 40px auto;
+  max-width: min(50vw, 620px);
+  max-height: 55vh;
+  margin: 80px auto;
 }
 
 /* ✅ TODO:
