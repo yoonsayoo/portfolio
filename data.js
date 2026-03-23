@@ -84,12 +84,82 @@ const artworks = [
   ========================= */
   {
     series: "self-portraits",
-    title: "늙은 민들레",
-    titleEn: "An Old Dandelion",
+    title: "자화상",
+    titleEn: "self-portrait",
+    year: "2025",
+    material: "Oil on canvas",
+    size: "116 × 91 cm",
+    image: "/images/self-portrait-2025.jpg"
+  },
+
+    {
+    series: "self-portraits",
+    title: "자화상",
+    titleEn: "self-portrait",
+    year: "2025",
+    material: "Pencil on paper",
+    size: "116 × 91 cm",
+    image: "/images/self-portrait-2025a.jpg"
+  },
+
+    {
+    series: "self-portraits",
+    title: "자화상",
+    titleEn: "self-portrait",
+    year: "2024",
+    material: "Woodcut print",
+    size: "116 × 91 cm",
+    image: "/images/self-portrait-2024.jpg"
+  },
+
+    {
+    series: "self-portraits",
+    title: "자화상",
+    titleEn: "self-portrait",
+    year: "2023",
+    material: "Oil on canvas",
+    size: "116 × 91 cm",
+    image: "/images/self-portrait-2023.jpg"
+  },
+
+    {
+    series: "self-portraits",
+    title: "자화상",
+    titleEn: "self-portrait",
+    year: "2022",
+    material: "Pencil on paper",
+    size: "116 × 91 cm",
+    image: "/images/self-portrait-2022a.jpg"
+  },
+
+    {
+    series: "self-portraits",
+    title: "자화상",
+    titleEn: "self-portrait",
     year: "2022",
     material: "Oil on canvas",
     size: "116 × 91 cm",
-    image: "/images/old-dandelion.jpg"
+    image: "/images/self-portrait-2022.jpg"
+  },
+
+    {
+    series: "self-portraits",
+    title: "자화상",
+    titleEn: "self-portrait",
+    year: "2021",
+    material: "Oil on canvas",
+    size: "116 × 91 cm",
+    image: "/images/self-portrait-2021.jpg"
+  },
+
+    {
+    series: "self-portraits",
+    title: "자화상",
+    titleEn: "self-portrait",
+    year: "2019",
+    material: "Acrylic on canvas",
+    size: "116 × 91 cm",
+    image: "/images/self-portrait-2019.jpg"
   },
 
   /* =========================
