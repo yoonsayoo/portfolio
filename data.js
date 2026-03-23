@@ -117,7 +117,7 @@ const artworks = [
     title: "자화상",
     titleEn: "self-portrait",
     year: "2023",
-    material: "Oil on canvas",
+    material: "Pencil on dictionary",
     size: "116 × 91 cm",
     image: "/images/self-portrait-2023.jpg"
   },
