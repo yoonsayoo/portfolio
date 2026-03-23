@@ -108,21 +108,31 @@ const artworks = [
     // {
   //   series: "objects",
   //   title: "성냥개비 나무",
-  //   titleEn: "Ma",
+  //   titleEn: "Matchstick tree",
   //   year: "2025",
   //   material: "Oil on canvas",
   //   size: "100 × 80 cm",
-  //   image: "/images/yellow-pencil.jpg"
+  //   image: "/images/matchstick-tree.jpg"
   // },
 
     // {
   //   series: "objects",
-  //   title: "노란 연필",
-  //   titleEn: "Yellow pencil",
-  //   year: "2025",
+  //   title: "어느 수학자의 책상",
+  //   titleEn: "A mathematician's desk",
+  //   year: "2024",
   //   material: "Oil on canvas",
   //   size: "100 × 80 cm",
-  //   image: "/images/yellow-pencil.jpg"
+  //   image: "/images/a-mathematician's-desk.jpg"
+  // },
+
+      // {
+  //   series: "objects",
+  //   title: "어느 수학자의 책상",
+  //   titleEn: "A mathematician's desk",
+  //   year: "2024",
+  //   material: "Oil on canvas",
+  //   size: "100 × 80 cm",
+  //   image: "/images/a-mathematician's-desk.jpg"
   // },
 
   /* =========================
