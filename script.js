@@ -92,7 +92,7 @@ function renderGrid() {
     button.className = "thumb";
     button.type = "button";
     button.innerHTML = `
-      <img src="${item.image}" alt="${item.titleEn || item.title || ""}" />
+      <img src="${item.image}" alt="${item.title || item.titleEn || ""}" />
     `;
 
     button.addEventListener("click", () => {
@@ -211,7 +211,7 @@ function updateViewer() {
     viewerImage.alt = item.titleEn || item.title || "";
   }
 
-  if (viewerTitle) viewerTitle.textContent = item.titleEn || item.title || "";
+  if (viewerTitle) viewerTitle.textContent = item.title || item.titleEn || "";
   if (viewerYear) viewerYear.textContent = item.year || "";
   if (viewerMaterial) viewerMaterial.textContent = item.material || "";
   if (viewerSize) viewerSize.textContent = item.size || "";
