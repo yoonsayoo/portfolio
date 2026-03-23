@@ -82,7 +82,7 @@ a {
   flex-direction: column;
   gap: 8px;
   margin-top: 60px;
-  font-size: 14px;
+  font-size: 15px;
   color: #555555;
 }
 
@@ -111,7 +111,7 @@ a {
   padding: 0 0 0 10px;
   margin: 0;
   text-align: left;
-  font-size: 13px;
+  font-size: 14px;
   color: #111111;
   line-height: 1.4;
 }
@@ -153,7 +153,7 @@ a {
 
 .sidebar-footer {
   margin-top: auto;
-  font-size: 11px;
+  font-size: 12px;
   color: #bbbbbb;
   letter-spacing: 0.02em;
 }
