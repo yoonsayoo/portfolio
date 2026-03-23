@@ -154,7 +154,7 @@ const artworks = [
 
     {
     series: "self-portraits",
-    title: "자화상",
+    title: "모기와 나",
     titleEn: "self-portrait",
     year: "2019",
     material: "Acrylic on canvas",
