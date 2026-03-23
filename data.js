@@ -117,7 +117,7 @@ const artworks = [
 
    {
     series: "objects",
-    title: "어느 수학자의 책상",
+    title: "어느 수학자의 변명",
     titleEn: "A mathematician's desk",
     year: "2024",
     material: "Oil on canvas",
@@ -187,7 +187,7 @@ const artworks = [
 
   {
     series: "objects",
-    title: "박종철의 방",
+    title: "대공분실 509호",
     titleEn: "Room 509",
     year: "2025",
     material: "Oil on paper",
