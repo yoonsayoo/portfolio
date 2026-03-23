@@ -96,16 +96,6 @@ const artworks = [
     series: "self-portraits",
     title: "자화상",
     titleEn: "self-portrait",
-    year: "2025",
-    material: "Pencil on paper",
-    size: "116 × 91 cm",
-    image: "/images/self-portrait-2025a.jpg"
-  },
-
-    {
-    series: "self-portraits",
-    title: "자화상",
-    titleEn: "self-portrait",
     year: "2024",
     material: "Woodcut print",
     size: "116 × 91 cm",
