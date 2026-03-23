@@ -44,7 +44,8 @@ a {
   flex-direction: column;
   width: 200px;
   height: 100vh;
-  padding: 20px 20px 24px;
+  box-sizing: border-box; 
+  padding: 20px 20px 24px 24px; 
   overflow-y: auto;
   background: #ffffff;
 }
