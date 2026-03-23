@@ -93,16 +93,36 @@ const artworks = [
   },
 
   /* =========================
-     📦 작은 사물들
+     📦 사물
   ========================= */
   // {
   //   series: "objects",
-  //   title: "작품명",
-  //   titleEn: "English Title",
-  //   year: "2024",
+  //   title: "노란 연필",
+  //   titleEn: "Yellow pencil",
+  //   year: "2025",
   //   material: "Oil on canvas",
   //   size: "100 × 80 cm",
-  //   image: "/images/object-1.jpg"
+  //   image: "/images/yellow-pencil.jpg"
+  // },
+
+    // {
+  //   series: "objects",
+  //   title: "성냥개비 나무",
+  //   titleEn: "Ma",
+  //   year: "2025",
+  //   material: "Oil on canvas",
+  //   size: "100 × 80 cm",
+  //   image: "/images/yellow-pencil.jpg"
+  // },
+
+    // {
+  //   series: "objects",
+  //   title: "노란 연필",
+  //   titleEn: "Yellow pencil",
+  //   year: "2025",
+  //   material: "Oil on canvas",
+  //   size: "100 × 80 cm",
+  //   image: "/images/yellow-pencil.jpg"
   // },
 
   /* =========================
