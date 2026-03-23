@@ -52,7 +52,15 @@ a {
 .content {
   margin-left: 240px;
   min-height: 100vh;
-  padding: 40px 24px;
+  padding: 20px 24px 40px;
+}
+
+.works-title,
+.page-heading {
+  margin: 0 0 24px;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.2;
 }
 
 
