@@ -142,7 +142,7 @@ const artworks = [
     year: "2024",
     material: "Oil on canvas",
     size: "100 × 80 cm",
-    image: "/images/lost-time.heic"
+    image: "/images/lost-time.jpg"
   },
 
   {
