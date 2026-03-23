@@ -151,7 +151,7 @@ a {
 }
 
 .sidebar-footer {
-  margin-top: 40px;
+  margin-top: auto;
   font-size: 11px;
   color: #bbbbbb;
   letter-spacing: 0.02em;
@@ -256,7 +256,7 @@ a {
 }
 
 .contact-view {
-  padding-top: 100px;
+  padding-top: 110px;
 }
 
 
