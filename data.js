@@ -95,115 +95,115 @@ const artworks = [
   /* =========================
      📦 사물
   ========================= */
-  // {
-  //   series: "objects",
-  //   title: "노란 연필",
-  //   titleEn: "Yellow pencil",
-  //   year: "2025",
-  //   material: "Oil on canvas",
-  //   size: "100 × 80 cm",
-  //   image: "/images/yellow-pencil.jpg"
-  // },
+  {
+     series: "objects",
+     title: "노란 연필",
+     titleEn: "Yellow pencil",
+     year: "2025",
+     material: "Oil on canvas",
+     size: "100 × 80 cm",
+     image: "/images/yellow-pencil.jpg"
+   },
 
-    // {
-  //   series: "objects",
-  //   title: "성냥개비 나무",
-  //   titleEn: "Matchstick tree",
-  //   year: "2025",
-  //   material: "Oil on canvas",
-  //   size: "100 × 80 cm",
-  //   image: "/images/matchstick-tree.jpg"
-  // },
+   {
+    series: "objects",
+    title: "성냥개비 나무",
+    titleEn: "Matchstick tree",
+    year: "2025",
+    material: "Oil on canvas",
+    size: "100 × 80 cm",
+    image: "/images/matchstick-tree.jpg"
+  },
 
-    // {
-  //   series: "objects",
-  //   title: "어느 수학자의 책상",
-  //   titleEn: "A mathematician's desk",
-  //   year: "2024",
-  //   material: "Oil on canvas",
-  //   size: "100 × 80 cm",
-  //   image: "/images/a-mathematician's-desk.jpg"
-  // },
+   {
+    series: "objects",
+    title: "어느 수학자의 책상",
+    titleEn: "A mathematician's desk",
+    year: "2024",
+    material: "Oil on canvas",
+    size: "100 × 80 cm",
+    image: "/images/a-mathematician's-desk.jpg"
+  },
 
-      // {
-  //   series: "objects",
-  //   title: "죽은 꽃",
-  //   titleEn: "Dead flowers",
-  //   year: "2024",
-  //   material: "Oil on canvas",
-  //   size: "100 × 80 cm",
-  //   image: "/images/dead-flowers.jpg"
-  // },
+  {
+    series: "objects",
+    title: "죽은 꽃",
+    titleEn: "Dead flowers",
+    year: "2024",
+    material: "Oil on canvas",
+    size: "100 × 80 cm",
+    image: "/images/dead-flowers.jpg"
+  },
 
-        // {
-  //   series: "objects",
-  //   title: "잃어버린 시간",
-  //   titleEn: "Lost time",
-  //   year: "2024",
-  //   material: "Oil on canvas",
-  //   size: "100 × 80 cm",
-  //   image: "/images/lost-time.jpg"
-  // },
+ {
+    series: "objects",
+    title: "잃어버린 시간",
+    titleEn: "Lost time",
+    year: "2024",
+    material: "Oil on canvas",
+    size: "100 × 80 cm",
+    image: "/images/lost-time.jpg"
+  },
 
-        // {
-  //   series: "objects",
-  //   title: "흰 빨래",
-  //   titleEn: "White laundry",
-  //   year: "2022",
-  //   material: "Oil on canvas",
-  //   size: "100 × 80 cm",
-  //   image: "/images/white-laundry.jpg"
-  // },
+  {
+    series: "objects",
+    title: "흰 빨래",
+    titleEn: "White laundry",
+    year: "2022",
+    material: "Oil on canvas",
+    size: "100 × 80 cm",
+    image: "/images/white-laundry.jpg"
+  },
 
-        // {
-  //   series: "objects",
-  //   title: "국회의원의 식탁",
-  //   titleEn: "A parliamentarian's table",
-  //   year: "2023",
-  //   material: "Oil on canvas",
-  //   size: "100 × 80 cm",
-  //   image: "/images/a-parliamentarian's-table.jpg"
-  // },
+  {
+    series: "objects",
+    title: "국회의원의 식탁",
+    titleEn: "A parliamentarian's table",
+    year: "2023",
+    material: "Oil on canvas",
+    size: "100 × 80 cm",
+    image: "/images/a-parliamentarian's-table.jpg"
+  },
 
-        // {
-  //   series: "objects",
-  //   title: "토마토 베개",
-  //   titleEn: "Tomato pillow",
-  //   year: "2022",
-  //   material: "Oil on canvas",
-  //   size: "100 × 80 cm",
-  //   image: "/images/tomato-pillow.jpg"
-  // },
+  {
+    series: "objects",
+    title: "토마토 베개",
+    titleEn: "Tomato pillow",
+    year: "2022",
+    material: "Oil on canvas",
+    size: "100 × 80 cm",
+    image: "/images/tomato-pillow.jpg"
+  },
 
-          // {
-  //   series: "objects",
-  //   title: "실리카겔",
-  //   titleEn: "Silica gel",
-  //   year: "2022",
-  //   material: "Oil on canvas",
-  //   size: "100 × 80 cm",
-  //   image: "/images/silica-gel.jpg"
-  // },
+  {
+    series: "objects",
+    title: "실리카겔",
+    titleEn: "Silica gel",
+    year: "2022",
+    material: "Oil on canvas",
+    size: "100 × 80 cm",
+    image: "/images/silica-gel.jpg"
+  },
 
-          // {
-  //   series: "objects",
-  //   title: "박종철의 방",
-  //   titleEn: "Room 509",
-  //   year: "2025",
-  //   material: "Oil on paper",
-  //   size: "100 × 80 cm",
-  //   image: "/images/room-509.jpg"
-  // },
+  {
+    series: "objects",
+    title: "박종철의 방",
+    titleEn: "Room 509",
+    year: "2025",
+    material: "Oil on paper",
+    size: "100 × 80 cm",
+    image: "/images/room-509.jpg"
+  },
 
-          // {
-  //   series: "objects",
-  //   title: "커피와 도넛 드로잉",
-  //   titleEn: "Coffee and donut drawing",
-  //   year: "2022",
-  //   material: "Pen on paper",
-  //   size: "100 × 80 cm",
-  //   image: "/images/coffee-and-donut-drawing.jpg"
-  // },
+ {
+    series: "objects",
+    title: "커피와 도넛 드로잉",
+    titleEn: "Coffee and donut drawing",
+    year: "2022",
+    material: "Pen on paper",
+    size: "100 × 80 cm",
+    image: "/images/coffee-and-donut-drawing.jpg"
+  },
 
   /* =========================
      🌿 자연
