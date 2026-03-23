@@ -195,15 +195,6 @@ const artworks = [
     image: "/images/room-509.jpg"
   },
 
- {
-    series: "objects",
-    title: "커피와 도넛 드로잉",
-    titleEn: "Coffee and donut drawing",
-    year: "2022",
-    material: "Pen on paper",
-    size: "100 × 80 cm",
-    image: "/images/coffee-and-donut-drawing.jpg"
-  },
 
   /* =========================
      🌿 자연
