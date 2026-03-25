@@ -249,15 +249,136 @@ const artworks = [
   /* =========================
      🌿 자연
   ========================= */
-  // {
-  //   series: "nature",
-  //   title: "작품명",
-  //   titleEn: "English Title",
-  //   year: "2024",
-  //   material: "Oil on canvas",
-  //   size: "100 × 80 cm",
-  //   image: "/images/nature-1.jpg"
-  // },
+ {
+   series: "nature",
+   title: "달밤",
+   titleEn: "Moonlight",
+   year: "2025",
+   material: "Oil on paper",
+   size: "100 × 80 cm",
+   image: "/images/moonlight.jpg"
+ },
+
+   {
+   series: "nature",
+   title: "늙은 민들레",
+   titleEn: "An old dandelion",
+   year: "2025",
+   material: "Oil on canvas",
+   size: "100 × 80 cm",
+   image: "/images/old-dandelion.jpg"
+ },
+
+   {
+   series: "nature",
+   title: "깊이에 관한 생각",
+   titleEn: "Thoughts on depth",
+   year: "2025",
+   material: "Oil on canvas",
+   size: "100 × 80 cm",
+   image: "/images/thoughts-on-depth.jpg"
+ },
+
+   {
+   series: "nature",
+   title: "골수까지 빼먹어라",
+   titleEn: "Suck it to the marrow",
+   year: "2025",
+   material: "Oil on canvas",
+   size: "100 × 80 cm",
+   image: "/images/suck-it-to-the-marrow.jpg"
+ },
+
+   {
+   series: "nature",
+   title: "슬픈 나무",
+   titleEn: "The sad tree",
+   year: "2025",
+   material: "Oil on paper",
+   size: "100 × 80 cm",
+   image: "/images/the-sad-tree.jpg"
+ },
+
+   {
+   series: "nature",
+   title: "하늘을 보다",
+   titleEn: "Gazing at the sky",
+   year: "2025",
+   material: "Oil on paper",
+   size: "100 × 80 cm",
+   image: "/images/gazing-at-the-sky.jpg"
+ },
+
+   {
+   series: "nature",
+   title: "꽃무리",
+   titleEn: "A cluster of flowers",
+   year: "2025",
+   material: "Oil on paper",
+   size: "100 × 80 cm",
+   image: "/images/a-cluster-of-flowers.jpg"
+ },
+
+     {
+   series: "nature",
+   title: "집으로 가는 길",
+   titleEn: "On the way home",
+   year: "2025",
+   material: "Pencil on paper",
+   size: "100 × 80 cm",
+   image: "/images/on-the-way-home.jpg"
+ },
+
+   {
+   series: "nature",
+   title: "기억의 지평",
+   titleEn: "The horizon",
+   year: "2022",
+   material: "Oil on canvas",
+   size: "100 × 80 cm",
+   image: "/images/the-horizon.jpg"
+ },
+
+   {
+   series: "nature",
+   title: "기억의 지평 미니",
+   titleEn: "The horizon mini",
+   year: "2022",
+   material: "Oil on canvas",
+   size: "100 × 80 cm",
+   image: "/images/the-horizon-mini.jpg"
+ },
+
+   {
+   series: "nature",
+   title: "바람이 불었다",
+   titleEn: "The wind blew",
+   year: "2021",
+   material: "Oil on canvas",
+   size: "100 × 80 cm",
+   image: "/images/the-wind-blew.jpg"
+ },
+
+   {
+   series: "nature",
+   title: "나무의 자화상",
+   titleEn: "Self portrait of a tree",
+   year: "2021",
+   material: "Acrylic and pencil on canvas",
+   size: "100 × 80 cm",
+   image: "/images/self-portrait-of-a tree.jpg"
+ },
+
+   {
+   series: "nature",
+   title: "나무의 자화상 스케치",
+   titleEn: "Self portrait of a tree sketch",
+   year: "2021",
+   material: "Pencil on paper",
+   size: "100 × 80 cm",
+   image: "/images/self-portrait-of-a-tree-sketch.jpg"
+ },
+
 
   /* =========================
      📖 이야기 → 나타샤 이야기
