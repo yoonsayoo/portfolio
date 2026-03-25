@@ -366,7 +366,7 @@ const artworks = [
    year: "2021",
    material: "Acrylic and pencil on canvas",
    size: "100 × 80 cm",
-   image: "/images/self-portrait-of-a tree.jpg"
+   image: "/images/self-portrait-of-a-tree.jpg"
  },
 
    {
