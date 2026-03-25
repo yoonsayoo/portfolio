@@ -279,14 +279,14 @@ const artworks = [
    image: "/images/thoughts-on-depth.jpg"
  },
 
-   {
-   series: "nature",
-   title: "골수까지 빼먹어라",
-   titleEn: "Suck it to the marrow",
-   year: "2025",
-   material: "Oil on canvas",
-   size: "100 × 80 cm",
-   image: "/images/suck-it-to-the-marrow.jpg"
+ {
+ //  series: "nature",
+ //  title: "골수까지 빼먹어라",
+ // titleEn: "Suck it to the marrow",
+ //  year: "2025",
+ //  material: "Oil on canvas",
+ //  size: "100 × 80 cm",
+ //  image: "/images/suck-it-to-the-marrow.jpg"
  },
 
    {
