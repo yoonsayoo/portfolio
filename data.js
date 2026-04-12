@@ -171,7 +171,7 @@ const artworks = [
     year: "2023",
     material: "Oil on canvas",
     size: "145 × 112 cm",
-    image: "/images/on-a-sick-day-drawing.jpg"
+    image: "/images/gxdxdnm-esquisse.jpg"
   }, 
   {
     series: "people",
