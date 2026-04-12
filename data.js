@@ -408,7 +408,7 @@ const artworks = [
     year: "2024",
     material: "Oil on canvas",
     size: "130 × 97 cm",
-    image: "/images/the_pot_and_the_roots.jpg"
+    image: "/images/the_pot_and_the_roots.jpeg"
   },
   {
     series: "roots",
@@ -489,7 +489,7 @@ const artworks = [
     year: "2024",
     material: "Oil on canvas",
     size: "130 × 97 cm",
-    image: "/images/if_one_could_choose_to_be_born.jpg"
+    image: "/images/if_one_could_choose_to_be_born.jpeg"
   },
   {
     series: "roots",
