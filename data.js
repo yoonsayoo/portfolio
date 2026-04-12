@@ -49,9 +49,18 @@ const artworks = [
   ========================= */
   {
     series: "people",
+    title: "갈 곳 없는 사람들",
+    titleEn: "nowhere to go",
+    year: "2025",
+    material: "Oil on canvas",
+    size: "130 × 97 cm",
+    image: "/images/nowhere-to-go.jpg"
+  },    
+  {
+    series: "people",
     title: "흰옷 입은 사람",
     titleEn: "The One in White",
-    year: "2024",
+    year: "2025",
     material: "Oil on canvas",
     size: "130 × 97 cm",
     image: "/images/the-one-in-white.jpg"
@@ -60,11 +69,164 @@ const artworks = [
     series: "people",
     title: "돌사람",
     titleEn: "Stone Figure",
-    year: "2024",
+    year: "2025",
     material: "Oil on canvas",
     size: "145 × 112 cm",
     image: "/images/stone-figure.jpg"
   },
+  {
+    series: "people",
+    title: "엄마",
+    titleEn: "Mother",
+    year: "2025",
+    material: "Oil on canvas",
+    size: "145 × 112 cm",
+    image: "/images/mother.jpg"
+  },
+  {
+    series: "people",
+    title: "물고기 계단",
+    titleEn: "fish stairs",
+    year: "2025",
+    material: "Oil on canvas",
+    size: "145 × 112 cm",
+    image: "/images/fish-stairs.jpg"
+  },
+  {
+    series: "people",
+    title: "감기 걸린 날",
+    titleEn: "on a sick day",
+    year: "2025",
+    material: "Oil on canvas",
+    size: "145 × 112 cm",
+    image: "/images/on-a-sick-day.jpg"
+  },  
+  {
+    series: "people",
+    title: "독백극",
+    titleEn: "monologue",
+    year: "2023",
+    material: "Oil on canvas",
+    size: "145 × 112 cm",
+    image: "/images/monologue.jpg"
+  },
+  {
+    series: "people",
+    title: "GXDXDNM",
+    titleEn: "GXDXDNM",
+    year: "2023",
+    material: "Oil on canvas",
+    size: "145 × 112 cm",
+    image: "/images/gxdxdnm.jpg"
+  },
+  {
+    series: "people",
+    title: "바다가 보이는 대도시의 아침",
+    titleEn: "moring in a metropolis",
+    year: "2023",
+    material: "Oil on canvas",
+    size: "145 × 112 cm",
+    image: "/images/moring-in-a-metropolis.jpg"
+  },
+  {
+    series: "people",
+    title: "엄마의 시간",
+    titleEn: "mother's time",
+    year: "2022",
+    material: "Oil on canvas",
+    size: "145 × 112 cm",
+    image: "/images/mother's-time.jpg"
+  },
+  {
+    series: "people",
+    title: "1호선 1Q84",
+    titleEn: "1Q84 line1",
+    year: "2022",
+    material: "Oil on canvas",
+    size: "145 × 112 cm",
+    image: "/images/1Q84-line1.jpg"
+  },
+  {
+    series: "people",
+    title: "엄마",
+    titleEn: "mother",
+    year: "2025",
+    material: "Oil on canvas",
+    size: "145 × 112 cm",
+    image: "/images/mother-drawing.jpg"
+  },
+  {
+    series: "people",
+    title: "감기 걸린 날",
+    titleEn: "On a sick day",
+    year: "2025",
+    material: "Oil on canvas",
+    size: "145 × 112 cm",
+    image: "/images/on-a-sick-day-drawing.jpg"
+  },
+  {
+    series: "people",
+    title: "gxdxdnm",
+    titleEn: "gxdxdnm",
+    year: "2023",
+    material: "Oil on canvas",
+    size: "145 × 112 cm",
+    image: "/images/on-a-sick-day-drawing.jpg"
+  }, 
+  {
+    series: "people",
+    title: "독백극",
+    titleEn: "Monologue",
+    year: "2023",
+    material: "Oil on canvas",
+    size: "145 × 112 cm",
+    image: "/images/monologue-esquisse.jpg"
+  },
+  {
+    series: "people",
+    title: "바다가 보이는 대도시의 아침",
+    titleEn: "Morning in a metropolis",
+    year: "2023",
+    material: "Oil on canvas",
+    size: "145 × 112 cm",
+    image: "/images/morning-in-a-metropolis-esquisse.jpg"
+  },
+  {
+    series: "people",
+    title: "아빠의 손거울",
+    titleEn: "father's hand-mirror",
+    year: "2023",
+    material: "Oil on canvas",
+    size: "145 × 112 cm",
+    image: "/images/father's-hand-mirror.jpg"
+  },
+  {
+    series: "people",
+    title: "두 세계",
+    titleEn: "Two worlds",
+    year: "2023",
+    material: "Oil on canvas",
+    size: "145 × 112 cm",
+    image: "/images/two-worlds.jpg"
+  },
+  {
+    series: "people",
+    title: "아바타",
+    titleEn: "Avatar",
+    year: "2023",
+    material: "Oil on canvas",
+    size: "145 × 112 cm",
+    image: "/images/avatar.jpg"
+  },
+  {
+    series: "people",
+    title: "엄마",
+    titleEn: "Mother",
+    year: "2025",
+    material: "Oil on canvas",
+    size: "145 × 112 cm",
+    image: "/images/mother-esquisse.jpg"
+  },  
 
     /* =========================
      🏠 인간 → 집
