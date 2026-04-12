@@ -383,6 +383,162 @@ const artworks = [
   /* =========================
      📖 이야기 → 나타샤 이야기
   ========================= */
+  {
+    series: "roots",
+    title: "무덤을 가진 아이",
+    titleEn: "The child with grave",
+    year: "2024",
+    material: "Oil on canvas",
+    size: "130 × 97 cm",
+    image: "/images/the_child_with_grave_oil.jpg"
+  },
+  {
+    series: "roots",
+    title: "12월 25일",
+    titleEn: "december 25",
+    year: "2024",
+    material: "Oil on canvas",
+    size: "130 × 97 cm",
+    image: "/images/december_25.jpg"
+  },
+  {
+    series: "roots",
+    title: "화분과 뿌리",
+    titleEn: "the pot and the roots",
+    year: "2024",
+    material: "Oil on canvas",
+    size: "130 × 97 cm",
+    image: "/images/the_pot_and_the_roots.jpg"
+  },
+  {
+    series: "roots",
+    title: "밤의 이불을 덮고",
+    titleEn: "under the blanket of night",
+    year: "2024",
+    material: "Oil on canvas",
+    size: "130 × 97 cm",
+    image: "/images/under_the_blanket_of_night.jpg"
+  },
+  {
+    series: "roots",
+    title: "무엇이 나타샤로 하여금 외로운 구름을 몰고 뿌리내리게 만들었나?",
+    titleEn: "under the blanket of night",
+    year: "2024",
+    material: "Oil on canvas",
+    size: "130 × 97 cm",
+    image: "/images/what_made_natasha_carry_a_lonely_cloud_and_take_root.jpg"
+  },
+  {
+    series: "roots",
+    title: "나타샤의 일기",
+    titleEn: "natasha's diary",
+    year: "2024",
+    material: "Oil on canvas",
+    size: "130 × 97 cm",
+    image: "/images/natasha's_diary.jpg"
+  },
+  {
+    series: "roots",
+    title: "잃어버린 시간",
+    titleEn: "lost time",
+    year: "2024",
+    material: "Oil on canvas",
+    size: "130 × 97 cm",
+    image: "/images/lost-time.jpg"
+  },  
+  {
+    series: "roots",
+    title: "잠에 드는 듯 태어나고 꿈에서 깨듯 죽는다",
+    titleEn: "To be born is to fall into sleep to die is to awaken from a dream",
+    year: "2024",
+    material: "Oil on canvas",
+    size: "130 × 97 cm",
+    image: "/images/To_be_born_is_to_fall_into_sleep_to_die_is_to_awaken_from_a_dream.jpg"
+  }, 
+  {
+    series: "roots",
+    title: "계단을 오르는 나타샤",
+    titleEn: "natasha ascending stairs",
+    year: "2024",
+    material: "Oil on canvas",
+    size: "130 × 97 cm",
+    image: "/images/natasha_ascending_stairs.jpg"
+  }, 
+  {
+    series: "roots",
+    title: "나타샤의 껍질",
+    titleEn: "natasha's shell",
+    year: "2024",
+    material: "Oil on canvas",
+    size: "130 × 97 cm",
+    image: "/images/natasha's_shell.jpg"
+  },   
+  {
+    series: "roots",
+    title: "무덤을 가진 아이",
+    titleEn: "the child with grave",
+    year: "2024",
+    material: "Oil on canvas",
+    size: "130 × 97 cm",
+    image: "/images/the_child_with_grave.jpg"
+  },   
+  {
+    series: "roots",
+    title: "태어남을 선택할 수 있다면",
+    titleEn: "if one could choose to be born",
+    year: "2024",
+    material: "Oil on canvas",
+    size: "130 × 97 cm",
+    image: "/images/if_one_could_choose_to_be_born.jpg"
+  },
+  {
+    series: "roots",
+    title: "긿 잃은 나타샤",
+    titleEn: "lost",
+    year: "2024",
+    material: "Oil on canvas",
+    size: "130 × 97 cm",
+    image: "/images/lost.jpg"
+  },
+  {
+    series: "roots",
+    title: "깊이에의 강요",
+    titleEn: "the imposition of depth",
+    year: "2024",
+    material: "Oil on canvas",
+    size: "130 × 97 cm",
+    image: "/images/the_imposition_of_depth.jpg"
+  },
+  {
+    series: "roots",
+    title: "나타샤의 초상",
+    titleEn: "portrait of natasha",
+    year: "2024",
+    material: "Oil on canvas",
+    size: "130 × 97 cm",
+    image: "/images/portrait_of_natasha.jpg"
+  },
+  {
+    series: "roots",
+    title: "나타샤의 초상",
+    titleEn: "a child holding back tears",
+    year: "2024",
+    material: "Oil on canvas",
+    size: "130 × 97 cm",
+    image: "/images/a_child_holding_back_tears.jpg"
+  },
+  {
+    series: "roots",
+    title: "운명",
+    titleEn: "destiny",
+    year: "2024",
+    material: "Oil on canvas",
+    size: "130 × 97 cm",
+    image: "/images/destiny.jpg"
+  },  
+  
+  
+  
   // {
   //   series: "roots",
   //   title: "작품명",
